@@ -1,13 +1,26 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="es-mx">
 <head>
     <meta charset="utf-8">
+    <meta name="description" content="Página demo de HTML 5" />
+    <meta name="keywords"
+          content="html, HTML, html5, hmlt 5, HMLT5, JS, JavaScript" />
+    <meta name="author" content="Finanzas" />
+    <meta name="abstract"
+          content="Resumen de lo que trata mi página. Cuál es el
+          objetivo de esta página" />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0" />
     <title>Demo HTML</title>
+
 </head>
 <body>
+    <p id="p-desc">Esta página trata temas sobre html, HTML, html5, hmlt 5, HMLT5, JS, JavaScript</p>
     <header>
-        <p>Acá se pone el menú de navegación, logo de la empresa,
-        banner</p>
+        <p>
+            Acá se pone el menú de navegación, logo de la empresa,
+            banner
+        </p>
         <nav>
             <ul>
                 <li>Quienes somos</li>
@@ -51,14 +64,114 @@
         </article>
     </main>
 
+    <section>
+        <h2>Enlaces relacionados</h2>
+        <aside>
+            <p>
+                Acá podemos colocar enlaces a otras página que profundicen
+                o hablen de temas relacionados. Incluso pueden enlaces a
+                otras páginas fuera del sitio
+            </p>
+        </aside>
+    </section>
+
+    <section>
+        <h2>Artículos previos</h2>
+        <article>
+            <h3>Listas ordenadas</h3>
+            <p>ol es una lista ordenada, HTML no ordena la lista,
+            se le dice ordenada porque los elementos
+            aparecen enumerados</p>
+            <ol>
+                <li>Este es el primer elemento de la lista ordenada</li>
+                <li>Este es el segundo elemento de la lista</li>
+            </ol>
+        </article>
+
+        <article>
+            <h3>Lista no ordenada</h3>
+            <p>
+                Lista no ordenada. Se le llama así debido a que no está
+                enumerada y solo se coloca una viñeta
+            </p>
+            <ul>
+                <li>Item 1</li>
+                <li>Item 2</li>
+            </ul>
+        </article>
+
+        <article>
+            <h3>Listas de definición</h3>
+            <p>Lista de definición. Está formada por dos elementos;
+            dt y dd. En dt se específica el tídulo de la definción
+            y en dd se especifíca la descripción</p>
+            <dl>
+                <dt>Título de la primera definición</dt>
+                <dd>Descripción de la definición 1</dd>
+                
+                <dt>Título de la segunda definición</dt>
+                <dd>Descripción de la definición 2</dd>
+            </dl>
+        </article>
+
+        <article>
+            <h3>Menú</h3>
+            <p>Menú, muy parecido a una lista no ordenada.
+            Puede contener elementos li o elementos menuitem, uno u otro pero
+            no ambos.</p>
+            <menu><!--menu con li ya está en desuso, no está obsoleto. Sin
+                      embargo puede que por el desuso sea marcado como
+                      obsoleto. Usarlo con precaución-->
+                <li>Menú 1</li>
+                <li>Menú 2</li>
+                <li>Menú 3</li>
+            </menu>
+
+            <menu><!--El elemento menu con menuitem ya es obsoleto.
+                      Aún puede encontrarse referencia en blogs y se
+                      recomienda ya no utilizarlo-->
+                <menuitem label="Menú 1.1"></menuitem>
+                <menuitem label="Menú 2.1"></menuitem>
+                <menuitem label="Menú 3.1"></menuitem>
+            </menu>
+        </article>
+
+        <article>
+            <h3>Bloque con comillas</h3>
+            <blockquote cite="https://www.puebla.gob.mx">
+                <p>"Este es un elemento que encierra entre comillas 
+                su contenido. Sirve para citar o hacer referencia
+                a un contenido, texto de otro autor"</p>
+            </blockquote>
+        </article>
+    </section>
+
     <footer>
-        <p>En el footer (pié de página) colocamos información adicional
-        del negocio.</p>
-        <address>Puedes visitar nuestro sitio web alterno
-        <a href="https://www.puebla.gob.mx" >Finanzas Puebla</a>
-        O bien puedes mandarnos un correo a:
-        <a href="mailto:personal@puebla.gob.mx">Personal de atención</a>
+        <p>
+            En el footer (pié de página) colocamos información adicional
+            del negocio.
+        </p>
+        <address>
+            Puedes visitar nuestro sitio web alterno
+            <a href="https://www.puebla.gob.mx">Finanzas Puebla</a>
+            O bien puedes mandarnos un correo a:
+            <a href="mailto:personal@puebla.gob.mx">Personal de atención</a>
         </address>
     </footer>
+
+    <script type="text/javascript">
+        alert('Hola JavaScript')
+        console.log("Hola consola de JavaScript")
+        var p = document.getElementById('p-desc')
+        console.log(p)
+        console.log(p.innerHTML)
+
+        var ps = document.getElementsByTagName('p')
+        console.log(ps)
+
+        for (var i = 0; i < ps.length; i++) {
+            console.log(ps[i].innerHTML)
+        }
+    </script>
 </body>
 </html>
