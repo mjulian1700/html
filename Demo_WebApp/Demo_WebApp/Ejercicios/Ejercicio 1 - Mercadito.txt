@@ -1,0 +1,6 @@
+1.- Agregar más frutas al switch (Por lo menos 5 frutas en total)
+2.- Al consultar una fruta debe aparecer una imagen de la fruta
+seleccionada y el texto que aparece en consola.
+3.- Agregar una caja de texto donde se capture la cantidad y 
+un botoón de agregar que saque la cuenta de cantidad * precio KG
+El acumulado debe mostrarse en una etiqueta.
