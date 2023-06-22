@@ -234,3 +234,66 @@ function validarPrecio(fruta) {
             console.log('Fruta no encontrada')
     }
 }
+
+var totalMercadito = 0
+var costoSeleccionado = 0
+//Función del mercadito-ejercicio
+function mostrarFruta(fruta) {
+    const nombreFruta = document.getElementById('nombre-fruta')
+    const imagenFruta = document.getElementById('imagen-fruta')
+    const textoFruta = document.getElementById('texto-fruta')
+    const cantidadFruta = document.getElementById('cantidad-fruta')
+
+    switch (fruta) {
+        case 'fresa':
+            nombreFruta.innerHTML = 'Fresa'
+            textoFruta.innerHTML = 'Seleccionaste fresa y tiene un costo de $100.00 kg'
+            imagenFruta.setAttribute('src', '../media/images/img_fresa.jpg')
+            cantidadFruta.value = 0
+            costoSeleccionado = 100
+            break
+        case 'mango':
+            nombreFruta.innerHTML = 'Mango'
+            textoFruta.innerHTML = 'Seleccionaste mango y tiene un costo de $40.00 kg'
+            imagenFruta.setAttribute('src', '../media/images/img_mango.jpg')
+            cantidadFruta.value = 0
+            costoSeleccionado = 40
+            break
+        case 'pera':
+            nombreFruta.innerHTML = 'Pera'
+            textoFruta.innerHTML = 'Seleccionaste pera y tiene un costo de $60.00 kg'
+            imagenFruta.setAttribute('src', '../media/images/img_pera.jpg')
+            cantidadFruta.value = 0
+            costoSeleccionado = 60
+            break
+        case 'melon':
+            nombreFruta.innerHTML = 'Melón'
+            textoFruta.innerHTML = 'Seleccionaste melón y tiene un costo de $30.00 kg'
+            imagenFruta.setAttribute('src', '../media/images/img_melon.jpg')
+            cantidadFruta.value = 0
+            costoSeleccionado = 30
+            break
+        case 'uva':
+            nombreFruta.innerHTML = 'Uva'
+            textoFruta.innerHTML = 'Seleccionaste uva y tiene un costo de $70.00 kg'
+            imagenFruta.setAttribute('src', '../media/images/img_uva.jpg')
+            cantidadFruta.value = 0
+            costoSeleccionado = 70
+            break
+        default:
+            nombreFruta.innerHTML = 'Fruta no encontrada'
+            textoFruta.innerHTML = 'No se encontró la fruta seleccionada'
+            imagenFruta.setAttribute('src', '')
+            cantidadFruta.value = 0
+            costoSeleccionado = 0
+    }
+}
+
+function calcularTotal() {
+    const total = document.getElementById('total')
+    const cantidadFruta = document.getElementById('cantidad-fruta')
+
+    let cantidad = parseFloat(cantidadFruta.value)
+    totalMercadito += (cantidad * costoSeleccionado)
+    total.innerHTML = totalMercadito
+}

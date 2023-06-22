@@ -68,10 +68,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ejemplos\mercadito.html" />
+    <Content Include="ejemplos\mercadito_ejercicio.html" />
     <Content Include="Ejercicios\Ejercicio 1 - Mercadito.txt" />
     <Content Include="Ejercicios\Maqueta_Ejercicio 1 - Mercadito.png" />
     <Content Include="index.html" />
     <Content Include="js\JavaScript_Basics.js" />
+    <Content Include="media\images\img_fresa.jpg" />
+    <Content Include="media\images\img_mango.jpg" />
+    <Content Include="media\images\img_melon.jpg" />
+    <Content Include="media\images\img_pera.jpg" />
+    <Content Include="media\images\img_uva.jpg" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -88,7 +94,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="css\" />
-    <Folder Include="media\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
