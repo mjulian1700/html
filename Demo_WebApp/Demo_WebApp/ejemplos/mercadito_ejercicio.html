@@ -24,10 +24,11 @@
 
     <article>
         <h2 id="nombre-fruta"></h2>
-        <img id="imagen-fruta"/>
+        <img id="imagen-fruta" />
         <p id="texto-fruta"></p>
-        <input type="number" id="cantidad-fruta"/>
+        <input type="number" id="cantidad-fruta" onkeyup="calcularSubtotal()"/>
         <button onclick="calcularTotal()">Agregar</button>
+        <strong><label id="subtotal"></label></strong>
     </article>
 
     <script type="text/javascript" src="../js/JavaScript_Basics.js"></script>

@@ -297,3 +297,11 @@ function calcularTotal() {
     totalMercadito += (cantidad * costoSeleccionado)
     total.innerHTML = totalMercadito
 }
+
+function calcularSubtotal() {
+    const subtotal = document.getElementById('subtotal')
+    const cantidadFruta = document.getElementById('cantidad-fruta')
+
+    let cantidad = parseFloat(cantidadFruta.value)
+    subtotal.innerHTML = (cantidad * costoSeleccionado)
+}
