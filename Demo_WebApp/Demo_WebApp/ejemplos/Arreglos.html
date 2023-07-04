@@ -1,0 +1,164 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Arreglos</title>
+</head>
+<body>
+    <script type="text/javascript">
+        //Declaración de un arreglo
+        //De esta forma declaro un arreglo vacío
+        let frutas = []
+        //De esta forma declaro un arreglo con 2 elementos
+        frutas = ["Fresa", "Mango"]
+        console.log("Declaración de arreglo frutas y su contenido es:")
+        console.log(frutas)
+        console.log("Otra forma de imprimir los elementos de " +
+            "un array es con foreach")
+        frutas.forEach(function (elemento, indice, array) {
+            console.log(elemento)
+            console.log(indice)
+            console.log(`${indice} - ${elemento}`)
+        })
+
+        console.clear()
+        //Acceder a los elementos de un arreglo
+        let primero = frutas[0]
+        let ultimo = frutas[frutas.length - 1]
+        console.log("Para acceder a los elementos de un arreglo lo " +
+            "hago con arreglo[x] donde x es el índice del elemento")
+        console.log("frutas[0] = " + primero)
+        console.log("frutas[frutas.length - 1] = " + ultimo)
+        /*
+         * Fresa
+         * Mango
+         * frutas.length = 2
+         * frutas[frutas.length] = error porque no hay un elemento en
+         * el índice 2
+         **/
+
+        console.clear()
+        console.log("Otra forma de recorrer un arreglo es con" +
+            " for in y for of")
+        console.log("for of")
+        for (let item of frutas) {
+            console.log(item)
+        }
+
+        console.log("for in")
+        for (let item in frutas) {
+            console.log(item)
+        }
+
+        //En JavaScript los arreglos son mutables
+        console.clear()
+        //Este arreglo puede contener cualquier tipo
+        //y cualquier cantidad
+        let arreglo = []
+
+        let nuevaLongitud = frutas.push(123)
+        console.log("Se agrega 123 al arreglo frutas")
+        console.log(frutas)
+        console.log(nuevaLongitud)
+
+        nuevaLongitud = frutas.push(true)
+        console.log("Se agrega true al arreglo frutas")
+        console.log(frutas)
+        console.log(nuevaLongitud)
+
+        frutas.push(["Leon", "Jirafa", "Tigre"])
+        console.log("Se agrega un arreglo al arreglo frutas")
+        console.log(frutas)
+
+        frutas.push(function (nombre) { alert("Hola!!!! " + nombre)})
+        console.log("Se agrega una función al arreglo frutas")
+        console.log(frutas)
+
+        frutas[5]("Finanzas")
+
+        console.clear()
+        //Para eliminar/sacar el último elemento usaremos pop
+        console.log("Para eliminar/sacar el último elemento usaremos pop")
+        ultimo = frutas.pop()
+        console.log(ultimo)
+        ultimo = frutas.pop()
+        console.log(ultimo)
+        console.log(frutas)
+
+        console.clear()
+        console.log("Con indexOf podemos obtener el índice de un elemento")
+        let posicion = frutas.indexOf("Fresa")
+        console.log("La posición del elemento Fresa es: " + posicion)
+
+        posicion = frutas.indexOf("Mango")
+        console.log("La posición del elemento Mango es: " + posicion)
+
+        posicion = frutas.indexOf(123)
+        console.log("La posición del elemento 123 es: " + posicion)
+
+        console.clear()
+        console.log("Para eliminar un elemento en específico usaremos" +
+            " array.splice")
+        posicion = frutas.indexOf(123)
+        console.log("El ínidice del elemento 123 es: " + posicion)
+        let elemEliminado = frutas.splice(posicion, 1)
+        console.log(`Se eliminó ${elemEliminado} del arreglo frutas`)
+        console.log(frutas)
+
+        posicion = frutas.indexOf(true)
+        console.log("El ínidice del elemento true es: " + posicion)
+        elemEliminado = frutas.splice(posicion, 1)
+        console.log(`Se eliminó ${elemEliminado} del arreglo frutas`)
+        console.log(frutas)
+
+        console.clear()
+        let vegetales = ['Lechuga', 'Poro', 'Apio', 'Zanahoria']
+        console.log(vegetales)
+        elemEliminado = vegetales.splice(1, 2)
+        console.log("Elementos eliminados")
+        console.log(elemEliminado)
+
+        console.log("Elementos restantes en vegetales")
+        console.log(vegetales)
+
+        console.clear()
+        console.log("Para copiar un arreglo usamos slice")
+        let arregloCopiado = vegetales.slice()
+        console.log(arregloCopiado)
+
+        console.clear()
+        let productos = [
+            {
+                nombre: "Fresa",
+                descripcion: "Fresa deliciosa de Guanajuato",
+                precioKg: 100.00,
+                stockKg: 100
+            },
+            {
+                nombre: "Mango",
+                descripcion: "Mango delicioso y petacón de Veracrúz",
+                precioKg: 40.00,
+                stockKg: 400
+            },
+            {
+                nombre: "Uva",
+                descripcion: "Uva verde deliciosa sin semilla de Baja California",
+                precioKg: 80.00,
+                stockKg: 200
+            },
+            {
+                nombre: "Melón",
+                descripcion: "Melón chino delicioso de Torreón Coahuila",
+                precioKg: 20.00,
+                stockKg: 800
+            }
+        ]
+
+        productos.forEach(function (item) {
+            console.log(item.nombre)
+            console.log(item.descripcion)
+            console.log(item.precioKg)
+        })
+    </script>
+</body>
+</html>
