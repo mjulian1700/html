@@ -38,3 +38,7 @@ function getHtmlContent(url) {
 
     xhr.send()
 }
+
+function callAlertGlobal() {
+    alert('Hola sitio_global.js')
+}

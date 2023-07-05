@@ -1,13 +1,20 @@
 ﻿<h1>Mercadito virtual de Finanzas - Productos</h1>
 
 <article>
-    <h2>Mango</h2>
+    <h2 onclick="callAlertGlobal()">Mango</h2>
     <p>Mango de Veracrúz</p>
     <p>$123.00</p>
 </article>
 
 <article>
-    <h2>Uva</h2>
+    <h2 onclick="callAlertProductosLocal()">Uva</h2>
     <p>Uva de Veracrúz</p>
-    <p>$123.00</p>
+    <p onclick="callAlertProd()">$123.00</p>
 </article>
+
+<script type="text/javascript">
+    function callAlertProductosLocal() {
+        alert('Hola productos.html')
+    }
+</script>
+<script src="../js/sitio_productos.js"></script>
