@@ -80,7 +80,9 @@
     <Content Include="media\images\img_melon.jpg" />
     <Content Include="media\images\img_pera.jpg" />
     <Content Include="media\images\img_uva.jpg" />
+    <Content Include="sitio\contacto.html" />
     <Content Include="sitio\index.html" />
+    <Content Include="sitio\pedidos.html" />
     <Content Include="sitio\productos.html" />
     <Content Include="Web.config" />
   </ItemGroup>

@@ -1,6 +1,26 @@
-﻿document.onload(function () {
+﻿window.onload = function () {
+    document.getElementById('home-page').onclick = link_anchorWithHtmlPages
+    document.getElementById('productos-page').onclick = link_anchorWithHtmlPages
+    document.getElementById('pedidos-page').onclick = link_anchorWithHtmlPages
+    document.getElementById('contacto-page').onclick = link_anchorWithHtmlPages
+}
 
-})
+function link_anchorWithHtmlPages(event) {
+    switch (event.target.id) {
+        case 'home-page':
+            location.reload()
+            break
+        case 'productos-page':
+            getHtmlContent('../sitio/productos.html')
+            break
+        case 'pedidos-page':
+            getHtmlContent('../sitio/pedidos.html')
+            break
+        case 'contacto-page':
+            getHtmlContent('../sitio/contacto.html')
+            break
+    }
+}
 
 function getHtmlContent(url) {
     const divContent = document.getElementById('html-dynamic-content')
@@ -15,4 +35,6 @@ function getHtmlContent(url) {
             divContent.innerHTML = this.responseText
         }
     }
+
+    xhr.send()
 }
