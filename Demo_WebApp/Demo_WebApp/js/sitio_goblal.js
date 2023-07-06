@@ -33,12 +33,16 @@ function getHtmlContent(url) {
     xhr.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             divContent.innerHTML = this.responseText
+            if (url === '../sitio/productos.html') {
+                productos_initialLoad()
+            } else if (url === '../sitio/pedidos.html') {
+                pedidos_initialLoad()
+            }
+            else if (url === '../sitio/contacto.html') {
+                contacto_initialLoad()
+            }
         }
     }
 
     xhr.send()
-}
-
-function callAlertGlobal() {
-    alert('Hola sitio_global.js')
 }
