@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <script type="text/javascript">
+        //Objetos en JavaScript
+        console.log("La forma más común de escribir un objeto en JS" +
+            " es con el formato obj = {prop1:valprop1, " +
+            "... propn:valpropn}")
+        const obj = {
+            propiedad1: 123,
+            propiedad2: "Propiedad 2",
+            propiedad3: ["Este", "es", "un", "arreglo"]
+        }
+
+        console.log(obj)
+        console.log(obj.propiedad1)
+        console.log(obj.propiedad2)
+        console.log(obj.propiedad3)
+
+        //En cualquier momento puedes agregar tantas propiedades al objeto
+        //como consideres necesario. No importa si el objeto ya existe
+        obj.propiedad4 = "Esta es la propiedad 4"
+        console.log(obj)
+        console.log(obj.propiedad1)
+        console.log(obj.propiedad2)
+        console.log(obj.propiedad3)
+        console.log(obj.propiedad4)
+
+        console.clear()
+        console.log("Otra manera de crear un objeto, es declarandolo"
+            + "vacío y agregar las propiedades como se van necesitando")
+        const obj_2 = {}
+        console.log(obj_2)
+        obj_2.propiedad1 = 123
+        console.log(obj_2.propiedad1)
+
+        console.log(obj_2)
+        obj_2.propiedad2 = "Propiedad 2"
+        console.log(obj_2.propiedad2)
+
+        console.log(obj_2)
+        obj_2.propiedad3 = ["Este", "es", "un", "arreglo"]
+        console.log(obj_2.propiedad3)
+
+        console.clear()
+        console.log("Constructores")
+
+        function Carro(color, marca, modelo, anio) {
+            this.color = color
+            this.marca = marca
+            this.modelo = modelo
+            this.anio = anio
+            this.propietario_interno = null
+        }
+
+        const carro_1 = new Carro("Rojo", 'VW', "Vento", 2023)
+        const carro_2 = new Carro("Azul", 'Ford', "Focus", 2023)
+        const carro_3 = new Carro("Gris", 'Chevrolet', "Aveo", 2023)
+
+        console.log(carro_1)
+        console.log(carro_2)
+        console.log(carro_3)
+
+        carro_1.color = "Morado"
+        carro_1.propietario = "Abraham"
+        console.log(carro_1)
+
+        console.clear()
+        function Persona(nombre, domicilio, fechaNacimiento) {
+            this.nombre = nombre
+            this.domicilio = domicilio
+            this.fechaNacimiento = fechaNacimiento
+        }
+
+        const persona = new Persona("Abraham",
+            "Doimicilio conocido", "01/01/1988")
+
+        console.log(persona)
+        carro_1.propietario = persona
+        carro_2.propietario_interno = persona
+
+        console.log(carro_1)
+        console.log(carro_2)
+    </script>
+</body>
+</html>
