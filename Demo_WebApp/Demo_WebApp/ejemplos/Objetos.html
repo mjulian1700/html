@@ -85,6 +85,95 @@
 
         console.log(carro_1)
         console.log(carro_2)
+
+        console.clear()
+        const animal = {
+            tipo: "Perro",
+            color: "Café",
+            edad: 4,
+
+            mostrarDatos() {
+                console.log(this.tipo)
+                console.log(this.color)
+                console.log(this.edad)
+            }
+        }
+
+        console.log(animal)
+        animal.mostrarDatos()
+
+        function Animal() {
+            this.tipo = null
+            this.color = null
+            this.edad = null
+            this.mostrarDatos = function () {
+                console.log(this.tipo)
+                console.log(this.color)
+                console.log(this.edad)
+            }
+
+            this.comparar = function (objOtro) {
+                if (this.tipo === objOtro.tipo &&
+                    this.color === objOtro.color &&
+                    this.edad === objOtro.edad) {
+                    return 0
+                } else if (this.edad > objOtro.edad) {
+                    return 1
+                }
+                return -1
+            }
+        }
+
+        const animla_2 = new Animal()
+        animla_2.tipo = "Gato"
+        animla_2.color = "Gris"
+        animla_2.edad = 2
+
+        console.log(animla_2)
+        animla_2.mostrarDatos()
+
+        const animla_3 = new Animal()
+        animla_3.tipo = "Pato"
+        animla_3.color = "Blanco"
+        animla_3.edad = 1
+
+        console.log(animla_3)
+        animla_3.mostrarDatos()
+
+        console.clear()
+        const gato_1 = new Animal()
+        //Acá gato_1 se almacena en una localidad de memoria
+        gato_1.tipo = "Gato"
+        gato_1.color = "Gris"
+        gato_1.edad = 2
+
+        const gato_2 = new Animal()
+        //Acá gato_2 se almacena en una localidad de memoria.
+        //Diferente de gato_1 porque son dos objetos distintos
+        gato_2.tipo = "Gato"
+        gato_2.color = "Gris"
+        gato_2.edad = 2
+
+        console.log(gato_1)
+        console.log(gato_2)
+
+        console.log(gato_1 === gato_2)
+        //Compara localidades memoria y por eso regresa falso
+        //ya que la locidad donde se almacena gato_1 es diferente
+        //a la localidad donde se almacena gato_2
+
+        console.log(gato_1.comparar(gato_2))
+        //Acá los dos gatos don iguales
+
+        gato_1.edad = 10
+        console.log(gato_1.comparar(gato_2))
+        //gato_1 es mayor que gato_2
+
+        gato_2.edad = 11
+        console.log(gato_1.comparar(gato_2))
+            //gato_2 es mayor que gato_1
+
+
     </script>
 </body>
 </html>
