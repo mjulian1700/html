@@ -171,9 +171,213 @@
 
         gato_2.edad = 11
         console.log(gato_1.comparar(gato_2))
-            //gato_2 es mayor que gato_1
+        //gato_2 es mayor que gato_1
 
+        //////////Clases
+        console.clear()
+        console.log("JavaScript también tiene soporte para clases" +
+            " utilizando la palabra reservada 'class'")
 
+        class Ejemplo {
+            constructor() {
+            }
+            propiedad1 = "Esta es la propiedad 1"
+            propiedad2 = null
+            propiedad3 = 123
+
+            metodo1() {
+                console.log("Hola Clase Ejemplo")
+            }
+        }
+
+        const ej1 = new Ejemplo()
+        const ej2 = new Ejemplo()
+        ej2.propiedad2 = 'Este es el valor de ej2'
+
+        console.log(ej1)
+        console.log(ej1.propiedad1)
+        console.log(ej1.propiedad2)
+        console.log(ej1.propiedad3)
+        ej1.metodo1()
+
+        console.log(ej2)
+        console.log(ej2.propiedad1)
+        console.log(ej2.propiedad2)
+        console.log(ej2.propiedad3)
+        ej2.metodo1()
+
+        console.clear()
+        console.log("Inicialización de propiedades en el constructor")
+        class Color {
+            constructor(r, g, b) {
+                //if (r == null) { r = 0 }
+                //if (g == null) { g = 0 }
+                //if (b == null) { b = 0 }
+                //if (r === null || r === undefined) { r = 0 }
+                //if (g === null || g === undefined) { g = 0 }
+                //if (b === null || b === undefined) { b = 0 }
+                if (!r) { r = 0 }
+                if (!g) { g = 0 }
+                if (!b) { b = 0 }
+                this.rgbValues = [r, g, b]
+                this.transparencia = null
+            }
+        }
+
+        const c1 = new Color(255, 0, 0)
+        console.log(c1)
+        console.log(c1.rgbValues)
+        console.log(c1.transparencia)
+
+        const c2 = new Color()
+        console.log(c2)
+        console.log(c2.rgbValues)
+        console.log(c2.transparencia)
+
+        console.clear()
+        class Fruta {
+            #stockKg
+            #origen
+            constructor(nombre, descripcion, precioKg, stockKg, origen) {
+                this.nombre = nombre
+                this.descripcion = descripcion
+                this.precioKg = precioKg
+                this.#stockKg = stockKg
+                this.#origen = origen
+            }
+
+            getStockKg() {
+                console.log(this.#stockKg)
+            }
+
+            getOrigen() {
+                console.log(this.#origen)
+                this.#calcularGanancia()
+            }
+
+            #calcularGanancia() {
+                console.log("Ganancia!!!!")
+            }
+        }
+
+        const f1 = new Fruta("Fresa", "Fresa", 123, 123, "Puebla")
+        console.log(f1.nombre)
+        console.log(f1.descripcion)
+        console.log(f1.precioKg)
+        console.log(f1.stockKg)//Propiedad privada y no puede ser accedida
+        console.log(f1.origen)//Propiedad privada que no puede ser accedida
+        f1.getOrigen()
+        f1.getStockKg()
+
+        console.clear()
+        console.log("Miembros estáticos")
+        class Calculadora {
+            static x = 0
+            static y = 0
+
+            constructor() {
+            }
+
+            static sumar() {
+                return this.x + this.y
+            }
+
+            static restar(v, w) {
+                return v - w
+            }
+
+            static multiplicar() {
+                return this.x * this.y
+            }
+
+            static dividir(v, w) {
+                return v / w
+            }
+
+            static {
+                Calculadora.mipropiedadestatica
+                Calculadora.mipropiedadestatica_2 = 'Propiedad estática'
+            }
+        }
+
+        console.log(Calculadora)
+        Calculadora.x = 2
+        Calculadora.y = 2
+        console.log(Calculadora.x)
+        console.log(Calculadora.y)
+        console.log(Calculadora.sumar())
+        console.log(Calculadora.restar(8, 2))
+        console.log(Calculadora.multiplicar())
+        console.log(Calculadora.dividir(8, 2))
+
+        console.clear()
+        console.log(Calculadora.mipropiedadestatica)
+        console.log(Calculadora.mipropiedadestatica_2)
+        Calculadora.mipropiedadestatica = 123
+        console.log(Calculadora.mipropiedadestatica)
+
+        ////////////////////Herencia
+        console.clear()
+        console.log("Herencia")
+        class Fruta_V2 {
+            #stockKg
+            #origen
+            constructor(nombre, descripcion, precioKg, stockKg, origen) {
+                this.nombre = nombre
+                this.descripcion = descripcion
+                this.precioKg = precioKg
+                this.#stockKg = stockKg
+                this.#origen = origen
+            }
+
+            getStockKg() {
+                console.log(this.#stockKg)
+            }
+
+            getOrigen() {
+                console.log(this.#origen)
+                this.#calcularGanancia()
+            }
+
+            #calcularGanancia() {
+                console.log("Ganancia!!!!")
+            }
+        }
+
+        class Pera extends Fruta_V2 {
+            constructor(nombre, descripcion, precioKg, stockKg, origen,
+                tipo) {
+                super(nombre, descripcion, precioKg, stockKg, origen)
+                this.tipo = tipo
+            }
+
+            getValores() {
+                console.log(this.tipo)
+                console.log(this.nombre)
+                console.log(this.descripcion)
+                console.log(this.precioKg)
+                console.log(this.origen)
+                //console.log(this.#origen)
+                console.log(this.stockKg)
+                //console.log(this.#stockKg)
+            }
+        }
+
+        const p1 = new Pera("Pera", "Pera Desc", 123, 123, "Puebla",
+            "Chile en nogada")
+        console.log(p1)
+        console.log(p1.nombre)
+        console.log(p1.descripcion)
+        console.log(p1.precioKg)
+        console.log(p1.tipo)
+        p1.getOrigen()
+        p1.getStockKg()
+        //p1.calcularGanancia()//El método es privado y lo marca como que no existe
+        //p1.#calcularGanancia()//Solo se pueden declarar campos privados dentro de una clase
+        //console.log(p1.origen)//Muestra indefinido ya que es privado
+        //console.log(p1.stockKg)//Muestra indefinido ya que es privado
+
+        p1.getValores()
     </script>
 </body>
 </html>
