@@ -6,7 +6,15 @@
 </head>
 <body>
     <script type="text/javascript">
+        function dividir(x, y) {
+            if (y === 0) {
+                throw "El valor de 'y' no puede ser 0"
+            }
 
+            console.log(x / y)
+        }
+
+        dividir(8, 0)
     </script>
 </body>
 </html>
