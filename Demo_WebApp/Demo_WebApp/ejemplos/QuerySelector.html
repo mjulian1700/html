@@ -13,8 +13,13 @@
         <span id="id3" class="clase" title="Naranja">Naranja</span>
         <span id="id2" class="clase" title="Morado Tooltip">Morado</span>
         <span id="id1" class="clase" title="Rojo">Rojo</span>
+        <span id="id0" class="clase">Café</span>
+        <h3>Subtitulo h3</h3>
+        <h4>Subtitulo h4</h4>
     </div>
+
     <script type="text/javascript">
+        //Forma tradicional de recuperar elementos
         const h1 = document.getElementById("titulo-principal")
         console.log(h1)
 
@@ -26,6 +31,66 @@
 
         const spans_class = document.getElementsByClassName("clase")
         console.log(spans_class)
+
+        //QuerySelector para recuperar elementos
+        console.clear()
+        console.log("# --> hace referencia al valor del atributo id")
+        console.log(". --> hace referencia al valos del atributo class")
+
+        //Esto es lo mismo que document.getElementById("prueba")
+        const div = document.querySelector("#prueba") 
+        console.log(div)
+
+        let result = div.querySelector(".clase")
+        console.log(result)
+
+        result = document.querySelector("#prueba .clase")
+        console.log(result)
+
+        result = document.querySelectorAll("#prueba .clase")
+        console.log(result)
+
+        console.clear()
+        result = document.querySelector("span[title]")
+        console.log(result)
+
+        result = document.querySelectorAll("span[title]")
+        console.log(result)
+
+        result = document.querySelector("span[title=Rojo]")
+        console.log(result)
+
+        console.clear()
+        result = document.querySelector("[id]")
+        console.log(result)
+
+        result = document.querySelectorAll("[id]")
+        console.log(result)
+
+        console.clear()
+        result = document.querySelector("h3, h4")
+        console.log(result)
+
+        result = document.querySelectorAll("h3, h4")
+        console.log(result)
+
+        console.clear()
+        result = document.querySelector("div > span")
+        console.log(result)
+        console.log(result.length)
+
+        //div > span: Trae los elementos span que
+        //tengan como padre directo un div
+        //div span: Trae los elementos span que tengan como padre
+        //o abuelo, o bisabuelo o etc. un div
+        //div,span: Trae todos los elementos div y span que encuentre
+        result = document.querySelectorAll("div > span")
+        console.log(result)
+        console.log(result.length)
+
+        result = document.querySelectorAll("div > h3")
+        console.log(result)
+        console.log(result.length)
     </script>
 </body>
 </html>
