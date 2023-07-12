@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <h1 id="titulo-principal">Query Selector</h1>
+
+    <div id="prueba">
+        <span id="id5" class="clase" title="Azul Tooltip">Azul</span>
+        <span id="id4" class="clase" title="Verde">Verde</span>
+        <span id="id3" class="clase" title="Naranja">Naranja</span>
+        <span id="id2" class="clase" title="Morado Tooltip">Morado</span>
+        <span id="id1" class="clase" title="Rojo">Rojo</span>
+    </div>
+    <script type="text/javascript">
+        const h1 = document.getElementById("titulo-principal")
+        console.log(h1)
+
+        const h1s = document.getElementsByTagName("h1")
+        console.log(h1s)
+
+        const spans = document.getElementsByTagName("span")
+        console.log(spans)
+
+        const spans_class = document.getElementsByClassName("clase")
+        console.log(spans_class)
+    </script>
+</body>
+</html>

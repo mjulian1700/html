@@ -14,7 +14,74 @@
             console.log(x / y)
         }
 
-        dividir(8, 0)
+        function dividir_v2(x, y) {
+            console.log(x / y)
+        }
+
+        dividir(8, 2)
+        dividir_v2(8, 0)//Esto regresa infinito
+
+        try {
+            dividir(8, 0)
+        } catch (e) {
+            console.log(e)
+        }
+
+        console.clear()
+        function dividir_v3(x, y) {
+            if (y === 0) {
+                throw {
+                    error: "El valor de 'y' debe ser diferente de 0",
+                    code: 500,
+                    tostring() {
+                        return `Error ${this.code}: ${this.error}`
+                    }
+                }
+            }
+
+            console.log(x / y)
+        }
+
+        try {
+            dividir_v3(8, 0)
+        } catch (e) {
+            console.log(e)
+            console.log(e.tostring())
+        }
+
+        console.clear()
+        function dividir_v4(x, y) {
+            if (y === 0) {
+                throw new Error("El valor de 'y' no puede ser 0")
+            }
+
+            console.log(x / y)
+        }
+
+        try {
+            dividir_v4(8, 0)
+        } catch (e) {
+            console.log(e)
+        }
+
+        console.clear()
+        try {
+            dividir_v4(8, 0)
+        } catch (e) {
+            console.log(e)
+        } finally {
+            console.log("Esto se ejecuta sin importar que" +
+                "haya o no error")
+        }
+
+        try {
+            dividir_v4(8, 2)
+        } catch (e) {
+            console.log(e)
+        } finally {
+            console.log("Esto se ejecuta sin importar que" +
+                "haya o no error")
+        }
     </script>
 </body>
 </html>
