@@ -1,4 +1,18 @@
-﻿window.onload = function () {
+﻿class Pedido {
+    constructor(fruta, precio, cantidad) {
+        this.fruta = fruta
+        this.precio = precio
+        this.cantidad = cantidad
+    }
+}
+
+const pedidos = []
+
+function addPedido(pedido) {
+    pedidos.push(pedido)
+}
+
+window.onload = function () {
     document.getElementById('home-page').onclick = link_anchorWithHtmlPages
     document.getElementById('productos-page').onclick = link_anchorWithHtmlPages
     document.getElementById('pedidos-page').onclick = link_anchorWithHtmlPages
