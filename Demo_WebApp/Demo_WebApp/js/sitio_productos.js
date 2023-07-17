@@ -113,7 +113,7 @@ function productos_loadStaticContent() {
                     pedidos.push(new Pedido(item.nombre, item.precioKg, cantidad.value))
                 }
 
-                console.log(pedidos)
+                link_anchorWithHtmlPages('pedidos-page')
             })
         })
     }
