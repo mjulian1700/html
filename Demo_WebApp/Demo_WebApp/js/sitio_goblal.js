@@ -1,14 +1,4 @@
-﻿class Pedido {
-    constructor(fruta, precio, cantidad) {
-        this.fruta = fruta
-        this.precio = precio
-        this.cantidad = cantidad
-    }
-}
-
-const pedidos = []
-
-function addPedido(pedido) {
+﻿function addPedido(pedido) {
     pedidos.push(pedido)
 }
 
@@ -19,13 +9,13 @@ window.onload = function () {
     document.getElementById('contacto-page').onclick = link_anchorWithHtmlPages
 }
 
-function link_anchorWithHtmlPages(event) {
+function link_anchorWithHtmlPages(event, objectoEdicion) {
     switch (event.target.id) {
         case 'home-page':
             location.reload()
             break
         case 'productos-page':
-            getHtmlContent('../sitio/productos.html')
+            getHtmlContent('../sitio/productos.html', objectoEdicion)
             break
         case 'pedidos-page':
             getHtmlContent('../sitio/pedidos.html')
@@ -36,7 +26,7 @@ function link_anchorWithHtmlPages(event) {
     }
 }
 
-function getHtmlContent(url) {
+function getHtmlContent(url, objectoEdicion) {
     const divContent = document.getElementById('html-dynamic-content')
     let xhr = new XMLHttpRequest()
     xhr.open('GET', url, true)
@@ -48,7 +38,7 @@ function getHtmlContent(url) {
         if (this.readyState == 4 && this.status == 200) {
             divContent.innerHTML = this.responseText
             if (url === '../sitio/productos.html') {
-                productos_initialLoad()
+                productos_initialLoad(objectoEdicion)
             } else if (url === '../sitio/pedidos.html') {
                 pedidos_initialLoad()
             }

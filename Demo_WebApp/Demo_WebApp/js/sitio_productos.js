@@ -1,22 +1,16 @@
-﻿class Fruta {
-    #stockKg
-    constructor(nombre, descripcion, precioKg, imgUri, stockKg) {
-        this.nombre = nombre
-        this.descripcion = descripcion
-        this.precioKg = precioKg
-        this.imgUri = imgUri
-        this.#stockKg = stockKg
+﻿function productos_initialLoad(objectoEdicion) {
+    if (objectoEdicion) {
+        const fruta = buscarFruta(objectoEdicion.nombreFruta)
+        if (fruta) {
+            productos_loadContenidoEdicion(fruta)
+        }
+        else {
+            productos_loadStaticContent()
+        }
     }
-
-    getStockKg() {
-        console.log(this.#stockKg)
+    else {
+        productos_loadStaticContent()
     }
-}
-
-const catalogoProductos = []
-
-function productos_initialLoad() {
-    productos_loadStaticContent()
 }
 
 function productos_loadStaticContent() {
@@ -113,10 +107,58 @@ function productos_loadStaticContent() {
                     pedidos.push(new Pedido(item.nombre, item.precioKg, cantidad.value))
                 }
 
-                link_anchorWithHtmlPages('pedidos-page')
+                link_anchorWithHtmlPages({ target: { id: 'pedidos-page' } })
             })
         })
     }
+}
+
+function productos_loadContenidoEdicion(fruta) {
+    const catalogSection = document.getElementById('productos-catalogo-frutas')
+    catalogSection.innerHTML = ''
+
+    const article = document.createElement('article')
+    const subtitulo = document.createElement('h2')
+    const imagen = document.createElement('img')
+    const desc = document.createElement('p')
+    const precio = document.createElement('p')
+
+    subtitulo.textContent = fruta.nombre
+    imagen.src = fruta.imgUri
+    desc.textContent = fruta.descripcion
+    precio.textContent = fruta.precioKg
+
+    article.appendChild(subtitulo)
+    article.appendChild(imagen)
+    article.appendChild(desc)
+    article.appendChild(precio)
+
+    catalogSection.appendChild(article)
+
+    const cantidad = document.createElement('input')
+    const boton = document.createElement('button')
+
+    cantidad.type = 'text'
+    pedidoActual = buscarPedido(fruta.nombre)
+    if (pedidoActual) {
+        cantidad.value = pedidoActual.cantidad
+    }
+    boton.textContent = 'Agregar'
+
+    catalogSection.appendChild(article)
+    catalogSection.appendChild(cantidad)
+    catalogSection.appendChild(boton)
+
+    boton.addEventListener('click', () => {
+        if (pedidoActual) {
+            pedidoActual.cantidad = cantidad.value
+        }
+        else {
+            pedidos.push(new Pedido(fruta.nombre, fruta.precioKg, cantidad.value))
+        }
+
+        link_anchorWithHtmlPages({ target: { id: 'pedidos-page' } })
+    })
 }
 
 function buscarPedido(nombreFruta) {
@@ -126,4 +168,12 @@ function buscarPedido(nombreFruta) {
         }
     }
     return null
+}
+
+function buscarFruta(nombreFruta) {
+    for (fruta of catalogoProductos) {
+        if (fruta.nombre) {
+            return fruta
+        }
+    }
 }

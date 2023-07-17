@@ -80,7 +80,10 @@
     <Content Include="index.html" />
     <Content Include="js\JavaScript_Basics.js" />
     <Content Include="js\sitio_goblal.js" />
+    <Content Include="js\sitio_modelos.js" />
+    <Content Include="js\sitio_pedidos.js" />
     <Content Include="js\sitio_productos.js" />
+    <Content Include="js\sitio_variables_globales.js" />
     <Content Include="media\images\img_fresa.jpg" />
     <Content Include="media\images\img_mango.jpg" />
     <Content Include="media\images\img_melon.jpg" />

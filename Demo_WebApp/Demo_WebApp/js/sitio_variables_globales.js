@@ -1,0 +1,2 @@
+﻿const pedidos = []
+const catalogoProductos = []
