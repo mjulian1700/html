@@ -172,7 +172,7 @@ function buscarPedido(nombreFruta) {
 
 function buscarFruta(nombreFruta) {
     for (fruta of catalogoProductos) {
-        if (fruta.nombre) {
+        if (fruta.nombre === nombreFruta) {
             return fruta
         }
     }
