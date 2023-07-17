@@ -1,0 +1,7 @@
+1.- Si doy click a alguno de los productos me debe mostrar el detalle del producto seleccionado (Le puedes agregar más campos). Considera ajustar el código con clases, y query selector. Para regresar a la vista anterior doy click en productos y me muestra todo.
+
+2.- En el detalle del producto me debe aparecer una caja de texto y 1 botón de agregar. En la caja de texto puedo capturar la cantidad en kg del producto (Nota: Si ya agregué productos del tipo mostrado me debe aparecer en la caja de texto). Si le doy agregar, debe agregarlo a una lista en la página de Pedidos. La lista debe mostrar los productos, cantidades y precios:
+
+5KG Fresa $50.00
+10Kg Mango $200.00
+...
