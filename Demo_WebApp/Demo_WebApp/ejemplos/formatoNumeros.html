@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <script type="text/javascript">
+        let numero = 123.123456789
+
+        console.log("Método toFixed")
+        console.log("numero.toFixed() " + numero.toFixed())
+        console.log("numero.toFixed(2) " + numero.toFixed(2))
+        console.log("numero.toFixed(3) " + numero.toFixed(3))
+        console.log("numero.toFixed(4) " + numero.toFixed(4))
+        console.log("numero.toFixed(10) " + numero.toFixed(10))
+        console.log("numero.toFixed(20) " + numero.toFixed(20))
+
+        console.clear()
+        console.log("Método toLocaleString()")
+        console.log("Número original " + numero)
+        console.log(numero.toLocaleString('en-US'))//Inglés EU
+        console.log(numero.toLocaleString('es-MX'))//Español MX
+        console.log(numero.toLocaleString('es-ES'))//Español España
+        console.log(numero.toLocaleString('ar-EG'))//Arabe Egipcio
+        console.log(numero.toLocaleString('fr-FR'))//Frances Francia
+
+        console.clear()
+        console.log("Formato de moneda (Currency)")
+        let numeroFormateado = new
+        Intl.NumberFormat('en-US',
+        { style: 'currency', currency: 'USD' }).format(numero)
+
+        console.log(numeroFormateado)
+
+        numeroFormateado = new
+        Intl.NumberFormat('es-MX',
+        { style: 'currency', currency: 'MXN' }).format(numero)
+
+        console.log(numeroFormateado)
+
+        numeroFormateado = new
+            Intl.NumberFormat('hi-IN',
+                { style: 'currency', currency: 'INR' }).format(numero)
+
+        console.log(numeroFormateado)
+
+        numeroFormateado = new
+            Intl.NumberFormat(undefined,
+                { style: 'currency', currency: 'MXN' }).format(numero)
+
+        console.log(numeroFormateado)
+
+        numeroFormateado = new
+            Intl.NumberFormat(undefined,
+                { style: 'currency', currency: 'USD' }).format(numero)
+
+        console.log(numeroFormateado)
+    </script>
+</body>
+</html>

@@ -8,12 +8,15 @@ function pedidos_mostrarListado() {
     for (pedido of pedidos) {
         const liPedido = document.createElement('li')
         const aPedido = document.createElement('a')
+        let frutaSeleccionada = pedido.fruta
 
         aPedido.href = '#'
-        aPedido.textContent = `${pedido.fruta} - ${pedido.precio} - ${pedido.cantidad}`
+        let precioFormat = pedido.precio.toLocaleString('es-MX', { style: 'currency', currency: 'MXN' })
+        let cantidadFormat = pedido.cantidad.toLocaleString('es-MX')
+        aPedido.textContent = `${pedido.fruta} - ${precioFormat} - ${cantidadFormat}`
 
         aPedido.addEventListener('click', () => {
-            link_anchorWithHtmlPages({ target: { id: 'productos-page' } }, { nombreFruta: pedido.fruta, esEdicion: true })
+            link_anchorWithHtmlPages({ target: { id: 'productos-page' } }, { nombreFruta: frutaSeleccionada, esEdicion: true })
         })
 
         liPedido.appendChild(aPedido)
