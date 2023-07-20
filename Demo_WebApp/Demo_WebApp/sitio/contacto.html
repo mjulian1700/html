@@ -1,12 +1,14 @@
 ﻿<h1>Mercadito virtual de Finanzas - Contacto</h1>
-<form name="contacto-formulario" action="#" method="GET|PUT|POST|DELETE" >
+<form name="contacto-formulario" action="#"
+      method="GET|PUT|POST|DELETE"
+      onsubmit="return contacto_validarFormulario()">
     <div>
         <label id="contacto-lbl-nombre" for="contacto-inp-nombre">
             Nombre
         </label>
         <input id="contacto-inp-nombre" name="FullName" type="text"
                placeholder="Escriba su nombre completo"
-               required maxlength="10" minlength="5"/>
+               required maxlength="50" minlength="5"/>
     </div>
 
     <!--Esta es otra manera de colocar parejas de etiqueta/input-->
@@ -20,7 +22,8 @@
             Correo Electrónico
         </label>
         <input id="contacto-inp-email" name="Email" type="email"
-               placeholder="Escriba su correo electrónico" />
+               placeholder="Escriba su correo electrónico"
+               required maxlength="50" minlength="5"/>
     </div>
 
     <div>
@@ -28,7 +31,8 @@
             Mensaje
         </label>
         <textarea id="contacto-inp-mensaje" name="Mensaje"
-                  placeholder="Escriba el mensaje a enviar"></textarea>
+                  placeholder="Escriba el mensaje a enviar"
+                  required maxlength="250" minlength="5"></textarea>
     </div>
 
     <div>
@@ -43,7 +47,7 @@
                     Sugerencia
                 </label>
                 <input id="contacto-inp-asunto-sugerencia" type="radio"
-                       value="Sugerencia" name="Asunto" />
+                       required value="Sugerencia" name="Asunto" />
             </div>
 
             <div>
@@ -52,7 +56,7 @@
                     Reporte
                 </label>
                 <input id="contacto-inp-asunto-reporte" type="radio"
-                       value="Reporte" name="Asunto" />
+                       required value="Reporte" name="Asunto" />
             </div>
 
             <div>
@@ -61,7 +65,7 @@
                     Pregunta
                 </label>
                 <input id="contacto-inp-asunto-pregunta" type="radio"
-                       value="Pregunta" name="Asunto" />
+                       required value="Pregunta" name="Asunto" />
             </div>
         </div>
     </div>
@@ -90,7 +94,7 @@
             <option value="0">Seleccione un elemento de la lista</option>
             <option value="1">Crítico</option>
             <option value="2">Alto</option>
-            <option value="3" selected>Medio</option>
+            <option value="3">Medio</option>
             <option value="4">Bajo</option>
         </select>
     </div>

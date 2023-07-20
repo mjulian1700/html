@@ -80,6 +80,7 @@
     <Content Include="Ejercicios\Maqueta_Ejercicio 1 - Mercadito.png" />
     <Content Include="index.html" />
     <Content Include="js\JavaScript_Basics.js" />
+    <Content Include="js\sitio_contacto.js" />
     <Content Include="js\sitio_goblal.js" />
     <Content Include="js\sitio_modelos.js" />
     <Content Include="js\sitio_pedidos.js" />
