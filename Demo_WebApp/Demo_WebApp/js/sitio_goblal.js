@@ -50,3 +50,5 @@ function getHtmlContent(url, objectoEdicion) {
 
     xhr.send()
 }
+
+getHtmlContent('http://localhost:51321/api/frutas/obtener')
