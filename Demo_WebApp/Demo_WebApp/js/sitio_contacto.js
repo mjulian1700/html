@@ -12,7 +12,7 @@ function contacto_validarFormulario() {
     //Solución 2
     console.log(document.forms)
     if (document.forms['contacto-formulario']['Prioridad'].value
-== 0    ) {
+        == 0) {
         alert('Selecciona algo')
         return false
     }
