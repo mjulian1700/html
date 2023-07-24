@@ -62,5 +62,3 @@ function getHtmlContent(url, metodo, objetoEdicion, callbackSuccess, callbackErr
     }
     xhr.send()
 }
-
-//getHtmlContent('http://localhost:51321/api/frutas/obtener')
