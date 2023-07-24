@@ -23,61 +23,13 @@ function productos_cargarProductos(event) {
                     item.nombre, item.descripcion, item.precioKg,
                     item.imgUri, item.stockKg))
             }
+
+            productos_pintarFrutas()
         }
     }
 }
 
-function productos_loadStaticContent() {
-    getHtmlContent('http://localhost:51321/api/frutas/obtener',
-        'GET', null, productos_cargarProductos)
-
-    if (catalogoProductos.length == 0) {
-        catalogoProductos.push(
-            new Fruta(
-                "Fresa",
-                "Fresa deliciosa de Guanajuato",
-                100.00,
-                '../media/images/img_fresa.jpg',
-                100
-            ))
-
-        catalogoProductos.push(
-            new Fruta(
-                "Mango",
-                "Mango delicioso y petacón de Veracrúz",
-                40.00,
-                '../media/images/img_mango.jpg',
-                400
-            ))
-
-        catalogoProductos.push(
-            new Fruta(
-                "Uva",
-                "Uva verde deliciosa sin semilla de Baja California",
-                80.00,
-                '../media/images/img_uva.jpg',
-                200
-            ))
-
-        catalogoProductos.push(
-            new Fruta(
-                "Melón",
-                "Melón chino delicioso de Torreón Coahuila",
-                20.00,
-                '../media/images/img_melon.jpg',
-                800
-            ))
-
-        catalogoProductos.push(
-            new Fruta(
-                "Pera",
-                "Pera deliciosa para los chiles en nogada de Puebla",
-                60.00,
-                '../media/images/img_pera.jpg',
-                1000
-            ))
-    }
-
+function productos_pintarFrutas() {
     const catalogSection = document.getElementById('productos-catalogo-frutas')
     catalogSection.innerHTML = ''
     for (let item of catalogoProductos) {
@@ -128,6 +80,11 @@ function productos_loadStaticContent() {
             })
         })
     }
+}
+
+function productos_loadStaticContent() {
+    getHtmlContent('http://localhost:51321/api/frutas/obtener',
+        'GET', null, productos_cargarProductos)
 }
 
 function productos_loadContenidoEdicion(fruta) {
