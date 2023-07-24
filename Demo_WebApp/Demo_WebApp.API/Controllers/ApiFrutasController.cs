@@ -36,7 +36,7 @@ namespace Demo_WebApp.API.Controllers
                     }
 
                     return Content<List<Frutas>>
-                        (HttpStatusCode.OK,
+                        (HttpStatusCode.Accepted,
                         context.Frutas.ToList(),
                         Configuration.Formatters.JsonFormatter);
                     //return Json<List<Frutas>>
