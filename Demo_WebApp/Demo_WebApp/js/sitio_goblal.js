@@ -29,10 +29,10 @@ function link_anchorWithHtmlPages(event, objectoEdicion) {
     }
 }
 
-function mostrarContenidoHtml() {
+function mostrarContenidoHtml(event, objectoEdicion) {
     const divContent = document.getElementById('html-dynamic-content')
-    if (this.readyState == 4 && this.status == 200) {
-        divContent.innerHTML = this.responseText
+    if (event.readyState == 4 && event.status == 200) {
+        divContent.innerHTML = event.responseText
         if (url === '../sitio/productos.html') {
             productos_initialLoad(objectoEdicion)
         } else if (url === '../sitio/pedidos.html') {
@@ -50,8 +50,16 @@ function getHtmlContent(url, metodo, callbackSuccess, callbackError) {
     xhr.setRequestHeader('Cache-Control', 'no-cache, no-store, max-age=0')
     xhr.setRequestHeader('Expires', 'Thu, 1 Jan 1970 00:00:00 GMT')
     xhr.setRequestHeader('Pragma', 'no-cache')
-    xhr.onerror = callbackError
-    xhr.onreadystatechange = callbackSuccess
+    xhr.onerror = function () {
+        if (callbackError) {
+            callbackError(this)
+        }
+    }
+    xhr.onreadystatechange = function () {
+        if (callbackSuccess) {
+            callbackSuccess(this)
+        }
+    }
     xhr.send()
 }
 
