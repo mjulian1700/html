@@ -1,2 +1,2 @@
 ﻿const pedidos = []
-const catalogoProductos = []
+let catalogoProductos = []

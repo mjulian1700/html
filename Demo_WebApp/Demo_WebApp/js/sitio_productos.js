@@ -13,7 +13,24 @@
     }
 }
 
+function productos_cargarProductos(event) {
+    if (event.readyState == 4 && event.status == 202) {
+        catalogoProductos = []
+        const result = JSON.parse(event.responseText)
+        if (result.length > 0) {
+            for (item of result) {
+                catalogoProductos.push(new Fruta(
+                    item.nombre, item.descripcion, item.precioKg,
+                    item.imgUri, item.stockKg))
+            }
+        }
+    }
+}
+
 function productos_loadStaticContent() {
+    getHtmlContent('http://localhost:51321/api/frutas/obtener',
+        'GET', null, productos_cargarProductos)
+
     if (catalogoProductos.length == 0) {
         catalogoProductos.push(
             new Fruta(
