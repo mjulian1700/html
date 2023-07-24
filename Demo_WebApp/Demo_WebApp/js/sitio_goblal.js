@@ -15,21 +15,21 @@ function link_anchorWithHtmlPages(event, objectoEdicion) {
             location.reload()
             break
         case 'productos-page':
-            getHtmlContent('../sitio/productos.html', 'GET',
+            getHtmlContent('../sitio/productos.html', 'GET', objectoEdicion,
                 mostrarContenidoHtml)
             break
         case 'pedidos-page':
-            getHtmlContent('../sitio/pedidos.html', 'GET',
+            getHtmlContent('../sitio/pedidos.html', 'GET', objectoEdicion,
                 mostrarContenidoHtml)
             break
         case 'contacto-page':
-            getHtmlContent('../sitio/contacto.html', 'GET',
+            getHtmlContent('../sitio/contacto.html', 'GET', objectoEdicion,
                 mostrarContenidoHtml)
             break
     }
 }
 
-function mostrarContenidoHtml(event, objectoEdicion) {
+function mostrarContenidoHtml(event, objectoEdicion, url) {
     const divContent = document.getElementById('html-dynamic-content')
     if (event.readyState == 4 && event.status == 200) {
         divContent.innerHTML = event.responseText
@@ -44,7 +44,7 @@ function mostrarContenidoHtml(event, objectoEdicion) {
     }
 }
 
-function getHtmlContent(url, metodo, callbackSuccess, callbackError) {
+function getHtmlContent(url, metodo, objetoEdicion, callbackSuccess, callbackError) {
     let xhr = new XMLHttpRequest()
     xhr.open(metodo, url, true)
     xhr.setRequestHeader('Cache-Control', 'no-cache, no-store, max-age=0')
@@ -57,7 +57,7 @@ function getHtmlContent(url, metodo, callbackSuccess, callbackError) {
     }
     xhr.onreadystatechange = function () {
         if (callbackSuccess) {
-            callbackSuccess(this)
+            callbackSuccess(this, objetoEdicion, url)
         }
     }
     xhr.send()
