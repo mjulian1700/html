@@ -64,17 +64,17 @@ function productos_loadContenidoEdicion(fruta, catalogSection, esEdicion) {
     catalogSection.appendChild(article)
 
     if (esEdicion === true) {
-        productos_mostrarElementoEdicion(fruta, catalogSection)
+        productos_mostrarElementoEdicion(fruta, catalogSection, article)
     }
     else {
         article.addEventListener('click', () => {
             catalogSection.innerHTML = ''
-            productos_mostrarElementoEdicion(fruta, catalogSection)
+            productos_mostrarElementoEdicion(fruta, catalogSection, article)
         })
     }
 }
 
-function productos_mostrarElementoEdicion(fruta, catalogSection) {
+function productos_mostrarElementoEdicion(fruta, catalogSection, article) {
     const cantidad = document.createElement('input')
     const boton = document.createElement('button')
 
