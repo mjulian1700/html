@@ -62,3 +62,20 @@ function getHtmlContent(url, metodo, objetoEdicion, callbackSuccess, callbackErr
     }
     xhr.send()
 }
+
+function buscarPedido(nombreFruta) {
+    for (pedido of pedidos) {
+        if (pedido.fruta === nombreFruta) {
+            return pedido
+        }
+    }
+    return null
+}
+
+function buscarFruta(nombreFruta) {
+    for (fruta of catalogoProductos) {
+        if (fruta.nombre === nombreFruta) {
+            return fruta
+        }
+    }
+}

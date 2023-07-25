@@ -2,7 +2,9 @@
     if (objectoEdicion) {
         const fruta = buscarFruta(objectoEdicion.nombreFruta)
         if (fruta) {
-            productos_loadContenidoEdicion(fruta)
+            const catalogSection = document.getElementById('productos-catalogo-frutas')
+            catalogSection.innerHTML = ''
+            productos_loadContenidoEdicion(fruta, catalogSection, true)
         }
         else {
             productos_loadStaticContent()
@@ -33,52 +35,7 @@ function productos_pintarFrutas() {
     const catalogSection = document.getElementById('productos-catalogo-frutas')
     catalogSection.innerHTML = ''
     for (let item of catalogoProductos) {
-        const article = document.createElement('article')
-        const subtitulo = document.createElement('h2')
-        const imagen = document.createElement('img')
-        const desc = document.createElement('p')
-        const precio = document.createElement('p')
-
-        subtitulo.textContent = item.nombre
-        imagen.src = item.imgUri
-        desc.textContent = item.descripcion
-        precio.textContent = item.precioKg
-
-        article.appendChild(subtitulo)
-        article.appendChild(imagen)
-        article.appendChild(desc)
-        article.appendChild(precio)
-
-        catalogSection.appendChild(article)
-
-        article.addEventListener('click', () => {
-            catalogSection.innerHTML = ''
-
-            const cantidad = document.createElement('input')
-            const boton = document.createElement('button')
-
-            cantidad.type = 'text'
-            pedidoActual = buscarPedido(item.nombre)
-            if (pedidoActual) {
-                cantidad.value = pedidoActual.cantidad
-            }
-            boton.textContent = 'Agregar'
-
-            catalogSection.appendChild(article)
-            catalogSection.appendChild(cantidad)
-            catalogSection.appendChild(boton)
-
-            boton.addEventListener('click', () => {
-                if (pedidoActual) {
-                    pedidoActual.cantidad = cantidad.value
-                }
-                else {
-                    pedidos.push(new Pedido(item.nombre, item.precioKg, cantidad.value))
-                }
-
-                link_anchorWithHtmlPages({ target: { id: 'pedidos-page' } })
-            })
-        })
+        productos_loadContenidoEdicion(item, catalogSection, false)
     }
 }
 
@@ -87,10 +44,7 @@ function productos_loadStaticContent() {
         'GET', null, productos_cargarProductos)
 }
 
-function productos_loadContenidoEdicion(fruta) {
-    const catalogSection = document.getElementById('productos-catalogo-frutas')
-    catalogSection.innerHTML = ''
-
+function productos_loadContenidoEdicion(fruta, catalogSection, esEdicion) {
     const article = document.createElement('article')
     const subtitulo = document.createElement('h2')
     const imagen = document.createElement('img')
@@ -109,11 +63,23 @@ function productos_loadContenidoEdicion(fruta) {
 
     catalogSection.appendChild(article)
 
+    if (esEdicion === true) {
+        productos_mostrarElementoEdicion(fruta, catalogSection)
+    }
+    else {
+        article.addEventListener('click', () => {
+            catalogSection.innerHTML = ''
+            productos_mostrarElementoEdicion(fruta, catalogSection)
+        })
+    }
+}
+
+function productos_mostrarElementoEdicion(fruta, catalogSection) {
     const cantidad = document.createElement('input')
     const boton = document.createElement('button')
 
     cantidad.type = 'text'
-    pedidoActual = buscarPedido(fruta.nombre)
+    let pedidoActual = buscarPedido(fruta.nombre)
     if (pedidoActual) {
         cantidad.value = pedidoActual.cantidad
     }
@@ -133,21 +99,4 @@ function productos_loadContenidoEdicion(fruta) {
 
         link_anchorWithHtmlPages({ target: { id: 'pedidos-page' } })
     })
-}
-
-function buscarPedido(nombreFruta) {
-    for (pedido of pedidos) {
-        if (pedido.fruta === nombreFruta) {
-            return pedido
-        }
-    }
-    return null
-}
-
-function buscarFruta(nombreFruta) {
-    for (fruta of catalogoProductos) {
-        if (fruta.nombre === nombreFruta) {
-            return fruta
-        }
-    }
 }
