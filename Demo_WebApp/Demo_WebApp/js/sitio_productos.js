@@ -91,10 +91,10 @@ function productos_mostrarElementoEdicion(fruta, catalogSection, article) {
 
     boton.addEventListener('click', () => {
         if (pedidoActual) {
-            pedidoActual.cantidad = cantidad.value
+            pedidoActual.cantidad = parseFloat(cantidad.value)
         }
         else {
-            pedidos.push(new Pedido(fruta.nombre, fruta.precioKg, cantidad.value))
+            pedidos.push(new Pedido(fruta.nombre, parseFloat(fruta.precioKg), parseFloat(cantidad.value)))
         }
 
         link_anchorWithHtmlPages({ target: { id: 'pedidos-page' } })
