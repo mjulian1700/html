@@ -6,9 +6,14 @@
 </head>
 <body>
     <table>
+        <!--El caption es para agregar un título a la tabla-->
+        <caption>Esta es una tabla de ejemplo</caption>
         <tr>
             <!--th = table header-->
-            <th></th>
+            <th scope="">Columna 0</th>
+            <th>Columna 1</th>
+            <th>Columna 2</th>
+            <th>Columna 3</th>
         </tr>
         <!--tr = table row-->
         <tr>
@@ -26,6 +31,51 @@
             <td>Fila 3 - Celda 1</td>
             <td>Fila 3 - Celda 2</td>
             <td></td>
+        </tr>
+    </table>
+
+    <table>
+        <tr>
+            <th></th>
+            <th>Lunes</th>
+            <th>Martes</th>
+            <th>Miércoles</th>
+            <th>Jueves</th>
+        </tr>
+        <tr>
+            <th>Pedro (lastimado)</th>
+            <!--colspan ocupa las columnas indicadas-->
+            <td colspan="3">0 km</td>
+            <td>4 km</td>
+        </tr>
+        <tr>
+            <th>Paco</th>
+            <td>1 km</td>
+            <td>2 km</td>
+            <td>3 km</td>
+            <td>4 km</td>
+        </tr>
+    </table>
+
+    <table>
+        <tr>
+            <th></th>
+            <th>Básico</th>
+            <th>Completo</th>
+        </tr>
+        <tr>
+            <th>Instalación</th>
+            <td rowspan="2">Gratis!</td>
+            <td>$250.00</td>
+        </tr>
+        <tr>
+            <th>Primer año</th>
+            <td>$150.00</td>
+        </tr>
+        <tr>
+            <th>Segundo año</th>
+            <td>$100.00</td>
+            <td>$50.00</td>
         </tr>
     </table>
 </body>
