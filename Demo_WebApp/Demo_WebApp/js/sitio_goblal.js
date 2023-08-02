@@ -3,10 +3,32 @@
 }
 
 window.onload = function () {
-    document.getElementById('home-page').onclick = link_anchorWithHtmlPages
-    document.getElementById('productos-page').onclick = link_anchorWithHtmlPages
-    document.getElementById('pedidos-page').onclick = link_anchorWithHtmlPages
-    document.getElementById('contacto-page').onclick = link_anchorWithHtmlPages
+    productos_loadStaticContent()
+
+    var millisecondsToWait = 1000;
+    setTimeout(function () {
+        document.getElementById('home-page').onclick = link_anchorWithHtmlPages
+        document.getElementById('productos-page').onclick = link_anchorWithHtmlPages
+        document.getElementById('pedidos-page').onclick = link_anchorWithHtmlPages
+        document.getElementById('contacto-page').onclick = link_anchorWithHtmlPages
+
+        if (typeof (Storage) !== "undefined") {
+            let pedidos_temp = recuperarElementoLocalStorage(lsPedidosTemp)
+            if (pedidos_temp) {
+                for (item of pedidos_temp) {
+                    if (buscarFruta(item.fruta)) {
+                        pedidos.push(item)
+                    }
+                    else {
+                        alert("La fruta " + item.fruta + " ya no se encuentra en el catálogo")
+                    }
+                }
+            }
+        }
+        else {
+            alert("El navegador no soporta almacenamiento local")
+        }
+    }, millisecondsToWait);
 }
 
 function link_anchorWithHtmlPages(event, objectoEdicion) {
@@ -78,4 +100,19 @@ function buscarFruta(nombreFruta) {
             return fruta
         }
     }
+
+    return null
+}
+
+function agregarElmentoLocalStorage(key, value) {
+    localStorage.setItem(key, JSON.stringify(value))
+}
+
+function recuperarElementoLocalStorage(key) {
+    let result = localStorage.getItem(key)
+    if (result) {
+        return JSON.parse(result)
+    }
+
+    return null
 }

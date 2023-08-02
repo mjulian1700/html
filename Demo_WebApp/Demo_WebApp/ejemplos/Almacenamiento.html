@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <script type="text/javascript">
+        console.log("Local Storage - Los datos no se pierden cuando " +
+            "cierra el navegador")
+        console.log("Se utiliza el objeto localStorage")
+        if (typeof (Storage) !== "undefined") {
+            console.log("Usamos localStorage.setItem para almacenar")
+            localStorage.setItem("mensaje", "Bienvenido")
+
+            console.log("Para recuperar un valor usamos " +
+                "localStorage.getItem")
+
+            const mensaje = localStorage.getItem("mensaje")
+            console.log(mensaje)
+            console.clear()
+
+            console.log("Para remover un elemento del storage" +
+                "usamos localStorage.removeItem")
+            localStorage.removeItem("mensaje")
+
+            console.log("Para validar si un elemento existe usamos if")
+            if (localStorage.getItem("mensaje") == null) {
+                console.log("El elemento 'mensaje' no existe en el" +
+                    "almacenamiento local")
+            }
+            else {
+                console.log(localStorage.getItem("mensaje"))
+            }
+
+            console.clear()
+            console.log("Session Storage - Almacenamiento que solo " +
+                "está vivo mientras dure la sesión")
+
+            console.log("Para almacenar un elemento de sesión usamos " +
+                "sessionStorage.setItem")
+            sessionStorage.setItem("mensaje", "Esto es temporal")
+            sessionStorage.mensaje2 = "Esto es temporal 2"
+
+            console.log("Para recuperar un elemento de sesión " +
+                "usamos sessionStorage.getItem o la notación punto")
+            console.log(sessionStorage.getItem("mensaje"))
+            console.log(sessionStorage.mensaje2)
+
+            console.log("Para remover un elemento de sesión " +
+                "usamos sessionStorage.removeItem y para " +
+                "remover todo usamos sessionStorage.clear")
+            console.log(sessionStorage.length)
+            sessionStorage.removeItem("mensaje")
+            console.log(sessionStorage.length)
+            sessionStorage.clear()
+            console.log(sessionStorage.length)
+
+        }
+        else {
+            alert("Tu navegador no soporta almacenamiento local")
+        }
+
+    </script>
+</body>
+</html>

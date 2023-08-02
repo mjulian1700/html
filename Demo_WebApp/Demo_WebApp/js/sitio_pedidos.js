@@ -71,6 +71,7 @@ function pedidos_mostrarListado() {
         eliminar.addEventListener('click', () => {
             pedidos.splice(pedidos.indexOf(frutaSeleccionada), 1)
             pedidos_mostrarListado()
+            agregarElmentoLocalStorage(lsPedidosTemp, pedidos)
         })
         thEncabezado.appendChild(eliminar)
 
@@ -80,6 +81,7 @@ function pedidos_mostrarListado() {
         agrear_1.addEventListener('click', () => {
             frutaSeleccionada.cantidad += 1
             pedidos_mostrarListado()
+            agregarElmentoLocalStorage(lsPedidosTemp, pedidos)
         })
         thEncabezado.appendChild(agrear_1)
 
@@ -92,6 +94,7 @@ function pedidos_mostrarListado() {
                 pedidos.splice(pedidos.indexOf(frutaSeleccionada), 1)
             }
             pedidos_mostrarListado()
+            agregarElmentoLocalStorage(lsPedidosTemp, pedidos)
         })
         thEncabezado.appendChild(quitar_1)
 

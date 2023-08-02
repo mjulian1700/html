@@ -8,10 +8,12 @@
         }
         else {
             productos_loadStaticContent()
+            productos_pintarFrutas()
         }
     }
     else {
         productos_loadStaticContent()
+        productos_pintarFrutas()
     }
 }
 
@@ -25,8 +27,6 @@ function productos_cargarProductos(event) {
                     item.nombre, item.descripcion, item.precioKg,
                     item.imgUri, item.stockKg))
             }
-
-            productos_pintarFrutas()
         }
     }
 }
@@ -92,9 +92,11 @@ function productos_mostrarElementoEdicion(fruta, catalogSection, article) {
     boton.addEventListener('click', () => {
         if (pedidoActual) {
             pedidoActual.cantidad = parseFloat(cantidad.value)
+            agregarElmentoLocalStorage(lsPedidosTemp, pedidos)
         }
         else {
             pedidos.push(new Pedido(fruta.nombre, parseFloat(fruta.precioKg), parseFloat(cantidad.value)))
+            agregarElmentoLocalStorage(lsPedidosTemp, pedidos)
         }
 
         link_anchorWithHtmlPages({ target: { id: 'pedidos-page' } })
