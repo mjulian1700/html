@@ -70,6 +70,7 @@
     <Content Include="ejemplos\Almacenamiento.html" />
     <Content Include="ejemplos\Arreglos.html" />
     <Content Include="ejemplos\formatoNumeros.html" />
+    <Content Include="ejemplos\Geolocation.html" />
     <Content Include="ejemplos\ManejoErrores.html" />
     <Content Include="ejemplos\mercadito.html" />
     <Content Include="ejemplos\mercadito_ejercicio.html" />

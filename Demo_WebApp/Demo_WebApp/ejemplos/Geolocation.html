@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Geolocalización</title>
+</head>
+<body>
+    <button id="geolocalizar">Geolocalizar</button>
+    <p id="status"></p>
+    <a id="map-link" target="_blank"></a>
+
+    <script type="text/javascript">
+        const status = document.querySelector("#status")
+        const mapLink = document.querySelector("#map-link")
+
+        function geolocalizar() {
+            if (!navigator.geolocation) {
+                alert("La geolocalización no está disponible")
+            }
+            else {
+                status.textContent = "Localizando..."
+                mapLink.href = ""
+                mapLink.textContent = ""
+
+                const geoOptions = {
+                    enableHighAccuracy: true,//Default : Apagado
+                    //Indica cada cuando el watch hace el cálculo
+                    maximumAge: 30000, //ms
+                    //Indica el tiempo máximo de espera por una espuesta
+                    timeout: 30000 //ms
+                }
+
+                navigator.geolocation.getCurrentPosition(geo_success,
+                    geo_error, geoOptions)
+            }
+        }
+
+        function geo_success(position) {
+            const latitude = position.coords.latitude
+            const longitude = position.coords.longitude
+
+            status.textContent = ""
+            mapLink.href = `https://www.openstreetmap.org/#map=18/${latitude}/${longitude}`
+            mapLink.textContent = `Latitude: ${latitude}, Longitude: ${longitude}`
+        }
+
+        function geo_error() {
+            status.textContent = "No es posible obtener la ubicación."
+        }
+
+        document.querySelector("#geolocalizar").addEventListener("click",
+            geolocalizar)
+    </script>
+</body>
+</html>
