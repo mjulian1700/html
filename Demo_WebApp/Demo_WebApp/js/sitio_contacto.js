@@ -23,7 +23,7 @@ function geo_success(position) {
     const latitude = position.coords.latitude
     const longitude = position.coords.longitude
 
-    initMap(latitude, longitude, document.querySelector("#map"))
+    initMap(latitude, longitude, document.querySelector("#map"), 15)
 }
 
 function geo_error() {

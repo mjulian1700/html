@@ -124,32 +124,7 @@ function productos_mostrarElementoEdicion(fruta, catalogSection, article) {
     catalogSection.appendChild(divMapa)
     catalogSection.appendChild(divVideo)
 
-    let latitude = 1
-    let longitude = 2
-    if (fruta.nombre == "Fresa") {
-        latitude = fruta.latitude
-        longitude = fruta.longitude
-    } else if (fruta.nombre == "Mango") {
-        latitude = fruta.latitude
-        longitude = fruta.longitude
-    }
-    else if (fruta.nombre == "Uva") {
-        latitude = fruta.latitude
-        longitude = fruta.longitude
-    }
-    else if (fruta.nombre == "Melón") {
-        latitude = 28.220432077995447
-        longitude = -101.38114663963019
-    }
-    else if (fruta.nombre == "Pera") {
-        latitude = fruta.latitude
-        longitude = fruta.longitude
-    }
-    else if (fruta.nombre == "Kiwi") {
-        latitude = fruta.latitude
-        longitude = fruta.longitude
-    }
-    initMap(latitude, longitude, divMapa, 7)
+    initMap(fruta.latitude, fruta.longitude, divMapa, 7)
 
     boton.addEventListener('click', () => {
         if (pedidoActual) {
