@@ -20,5 +20,10 @@ namespace Demo_WebApp.API.DataModel
         public decimal precioKg { get; set; }
         public string imgUri { get; set; }
         public decimal stockKg { get; set; }
+        public Nullable<decimal> latitude { get; set; }
+        public Nullable<decimal> longitude { get; set; }
+        public string videoUri_1 { get; set; }
+        public string videoUri_2 { get; set; }
+        public string videoUri_3 { get; set; }
     }
 }

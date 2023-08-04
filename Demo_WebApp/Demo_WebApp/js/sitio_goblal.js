@@ -116,3 +116,39 @@ function recuperarElementoLocalStorage(key) {
 
     return null
 }
+
+///////////Mapas
+function geolocalizar(geo_success, geo_error) {
+    if (!navigator.geolocation) {
+        alert("La geolocalización no está disponible")
+    }
+    else {
+        const geoOptions = {
+            enableHighAccuracy: true,
+            maximumAge: 30000,
+            timeout: 30000
+        }
+
+        navigator.geolocation.getCurrentPosition(geo_success,
+            geo_error, geoOptions)
+    }
+}
+
+async function initMap(lat, long, elemento, zoom) {
+    let map;
+    const position = { lat: lat, lng: long };
+    const { Map } = await google.maps.importLibrary("maps");
+    const { AdvancedMarkerView } = await google.maps.importLibrary("marker");
+
+    map = new Map(elemento, {
+        zoom: zoom,
+        center: position,
+        mapId: "DEMO_MAP_ID",
+    });
+
+    const marker = new AdvancedMarkerView({
+        map: map,
+        position: position,
+        title: "Finanzas Puebla",
+    });
+}

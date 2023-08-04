@@ -25,7 +25,9 @@ function productos_cargarProductos(event) {
             for (item of result) {
                 catalogoProductos.push(new Fruta(
                     item.nombre, item.descripcion, item.precioKg,
-                    item.imgUri, item.stockKg))
+                    item.imgUri, item.stockKg, item.latitude,
+                    item.longitude, item.videoUri_1, item.videoUri_2,
+                    item.videoUri_3))
             }
         }
     }
@@ -85,9 +87,69 @@ function productos_mostrarElementoEdicion(fruta, catalogSection, article) {
     }
     boton.textContent = 'Agregar'
 
+    const divMapa = document.createElement("div")
+    divMapa.id = 'map'
+    divMapa.style.width = "50%"
+    divMapa.style.height = "200px"
+
+    const divVideo = document.createElement("div")
+    const video = document.createElement("video")
+    video.id = "video-fruta"
+    video.controls = true
+    video.src = fruta.videoUri_1
+    video.poster = fruta.imgUri
+    video.width = "400"
+    video.height = "200"
+
+    const btnSiguiente = document.createElement("button")
+    btnSiguiente.textContent = "Siguiente Video"
+    btnSiguiente.addEventListener("click", () => {
+        if (video.src.includes(fruta.videoUri_1.replace("..",""))) {
+            video.src = fruta.videoUri_2
+        }
+        else if (video.src.includes(fruta.videoUri_2.replace("..", ""))) {
+            video.src = fruta.videoUri_3
+        }
+        else {
+            video.src = fruta.videoUri_1
+        }
+        
+    })
+    divVideo.appendChild(btnSiguiente)
+    divVideo.appendChild(video)
+
     catalogSection.appendChild(article)
     catalogSection.appendChild(cantidad)
     catalogSection.appendChild(boton)
+    catalogSection.appendChild(divMapa)
+    catalogSection.appendChild(divVideo)
+
+    let latitude = 1
+    let longitude = 2
+    if (fruta.nombre == "Fresa") {
+        latitude = fruta.latitude
+        longitude = fruta.longitude
+    } else if (fruta.nombre == "Mango") {
+        latitude = fruta.latitude
+        longitude = fruta.longitude
+    }
+    else if (fruta.nombre == "Uva") {
+        latitude = fruta.latitude
+        longitude = fruta.longitude
+    }
+    else if (fruta.nombre == "Melón") {
+        latitude = 28.220432077995447
+        longitude = -101.38114663963019
+    }
+    else if (fruta.nombre == "Pera") {
+        latitude = fruta.latitude
+        longitude = fruta.longitude
+    }
+    else if (fruta.nombre == "Kiwi") {
+        latitude = fruta.latitude
+        longitude = fruta.longitude
+    }
+    initMap(latitude, longitude, divMapa, 7)
 
     boton.addEventListener('click', () => {
         if (pedidoActual) {

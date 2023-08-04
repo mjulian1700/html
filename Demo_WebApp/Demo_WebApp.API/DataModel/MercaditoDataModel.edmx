@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="MercaditoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="MercaditoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Frutas">
           <Key>
             <PropertyRef Name="id" />
@@ -15,12 +15,16 @@
           <Property Name="precioKg" Type="money" Nullable="false" />
           <Property Name="imgUri" Type="nvarchar" MaxLength="200" Nullable="false" />
           <Property Name="stockKg" Type="decimal" Precision="11" Scale="2" Nullable="false" />
+          <Property Name="latitude" Type="decimal" Precision="18" Scale="15" />
+          <Property Name="longitude" Type="decimal" Precision="18" Scale="15" />
+          <Property Name="videoUri_1" Type="nvarchar" MaxLength="200" />
+          <Property Name="videoUri_2" Type="nvarchar" MaxLength="200" />
+          <Property Name="videoUri_3" Type="nvarchar" MaxLength="200" />
         </EntityType>
         <EntityContainer Name="MercaditoModelStoreContainer">
           <EntitySet Name="Frutas" EntityType="Self.Frutas" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="MercaditoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -34,6 +38,11 @@
           <Property Name="precioKg" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
           <Property Name="imgUri" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="stockKg" Type="Decimal" Precision="11" Scale="2" Nullable="false" />
+          <Property Name="latitude" Type="Decimal" Precision="18" Scale="15" />
+          <Property Name="longitude" Type="Decimal" Precision="18" Scale="15" />
+          <Property Name="videoUri_1" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="videoUri_2" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="videoUri_3" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityContainer Name="MercaditoEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Frutas" EntityType="Self.Frutas" />
@@ -47,6 +56,11 @@
           <EntitySetMapping Name="Frutas">
             <EntityTypeMapping TypeName="MercaditoModel.Frutas">
               <MappingFragment StoreEntitySet="Frutas">
+                <ScalarProperty Name="videoUri_3" ColumnName="videoUri_3" />
+                <ScalarProperty Name="videoUri_2" ColumnName="videoUri_2" />
+                <ScalarProperty Name="videoUri_1" ColumnName="videoUri_1" />
+                <ScalarProperty Name="longitude" ColumnName="longitude" />
+                <ScalarProperty Name="latitude" ColumnName="latitude" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
                 <ScalarProperty Name="descripcion" ColumnName="descripcion" />

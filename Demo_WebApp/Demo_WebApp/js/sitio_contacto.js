@@ -1,5 +1,5 @@
 ﻿function contacto_initialLoad() {
-
+    geolocalizar(geo_success, geo_error)
 }
 
 function contacto_validarFormulario() {
@@ -17,4 +17,15 @@ function contacto_validarFormulario() {
         return false
     }
     return true
+}
+
+function geo_success(position) {
+    const latitude = position.coords.latitude
+    const longitude = position.coords.longitude
+
+    initMap(latitude, longitude, document.querySelector("#map"))
+}
+
+function geo_error() {
+    alert("No es posible obtener la ubicación.")
 }
