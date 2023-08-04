@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Videos en JS</title>
+</head>
+<body>
+    <video controls>
+        <source src="../media/videos/Fresa_1.webm" type="video/webm" />
+        <source src="../media/videos/Fresa_1.mp4" type="video/mp4" />
+
+        <p>
+            El navegador no puede reproducir el video.
+            Este mensaje aparece cuando el navegador no soporta el
+            formato del video (Los videos deben estar disponibles)
+        </p>
+    </video>
+
+    <video controls>
+        <source src="../media/videos/Fresa_1.mp4" type="video/mp4" />
+        <source src="../media/videos/Fresa_2.mp4" type="video/mp4" />
+        <source src="../media/videos/Fresa_3.mp4" type="video/mp4" />
+    </video>
+
+    <!--
+    controls: Habilita los controles en el video
+    src: Indica la ubicación física del vide. Si se coloca a este nivel
+        no se deben poner sources dentro del elemento video
+    poster: Imagen que precarga para el video. Lo ideal es que haga
+        referencia al contenido del video
+    width: Ancho en pixeles del elemento video
+    height: Alto en pixeles del elemento video
+
+    -->
+    <video id="videos-fresa" controls src="../media/videos/Fresa_1.mp4"
+           poster="../media/images/img_fresa.jpg"
+           width="400" height="200" autoplay muted></video>
+    <button id="video-fresa-rep">Reproducir</button>
+    <button id="video-fresa-det">Detener</button>
+    <button id="video-fresa-sig">Siguiente</button>
+
+    <script type="text/javascript">
+        const video = document.querySelector("#videos-fresa")
+        const btnFresaRep = document.querySelector("#video-fresa-rep")
+        const btnFresaDet = document.querySelector("#video-fresa-det")
+        const btnFresaSig = document.querySelector("#video-fresa-sig")
+
+        video.addEventListener("pause", () => {
+            alert("El video fue pausado")
+        })
+
+        video.addEventListener("ended", () => {
+            alert("El video finalizó")
+        })
+
+        console.log(video)
+        btnFresaRep.addEventListener("click", () => { video.play(); video.currentTime = 3 })
+        btnFresaDet.addEventListener("click", () => { video.pause(); alert(video.currentTime) })
+        btnFresaSig.addEventListener("click", () => {
+            if (video.src.includes('Fresa_1.mp4')) {
+                video.pause()
+                video.src = '../media/videos/Fresa_2.mp4'
+                video.play()
+            }
+            else if (video.src.includes('Fresa_2.mp4')) {
+                video.pause()
+                video.src = '../media/videos/Fresa_3.mp4'
+                video.play()
+            }
+            else {
+                video.pause()
+                video.src = '../media/videos/Fresa_1.mp4'
+                video.play()
+            }
+        })
+
+        window.addEventListener("load", () => {
+            video.src = localStorage.getItem("videoSrc")
+            video.currentTime = localStorage.getItem("videoCurrentTime")
+            video.pause()
+        })
+
+        window.addEventListener("beforeunload", () => {
+            localStorage.setItem("videoCurrentTime", video.currentTime)
+            localStorage.setItem("videoSrc", video.src)
+        })
+    </script>
+</body>
+</html>
