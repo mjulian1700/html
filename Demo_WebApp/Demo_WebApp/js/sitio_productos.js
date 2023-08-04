@@ -115,8 +115,8 @@ function productos_mostrarElementoEdicion(fruta, catalogSection, article) {
         }
         
     })
-    divVideo.appendChild(btnSiguiente)
     divVideo.appendChild(video)
+    divVideo.appendChild(btnSiguiente)
 
     catalogSection.appendChild(article)
     catalogSection.appendChild(cantidad)
