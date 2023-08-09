@@ -1,0 +1,182 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style type="text/css">
+        /*selector (comodin, elemento, clase, atributo, id, combinado){
+            propiedad1:valor;
+            propiedad2:valor;
+            propiedad3:valor;
+            ....
+            propiedadn:valor
+        }*/
+
+        /*
+            El selector comodin es el ménos específico porque aplica a
+            todos los elementos: 1
+        */
+        * {
+            outline: 1px solid red;
+            background-color: white;
+        }
+
+        /*
+            Selector "elemento". Se llama así porque se aplica a todos
+            los elementos que empaten con el selector de la regla.
+            En este ejemplo a todos los elementos p: 2
+            Las reglas más específicas sobre-escriben a las reglas
+            menos específicas
+        */
+        p {
+            outline: 1px solid blue;
+            background-color: brown;
+        }
+        /*
+            Si las reglas tienen el mismo nivel de especificidad
+            se aplican segun fueron declaradas (con forme aparecen en
+            el documento)
+        */
+        p {
+            outline: 1px solid blue;
+            background-color: yellow;
+        }
+
+        body {
+            background-color: beige;
+        }
+
+        li {
+            color: black;
+            font-weight: normal;
+            font-size: 20px;
+        }
+        /*
+            El selector clase se indica con un "." y se aplica a
+            todos los elementos que en su atributo clase tengan el
+            valor indicado: 3
+        */
+        .item { /*"." indica que debe buscar todos los elementos que en
+                  su atributo class tengan el valor "item"*/
+            color: darkslategray;
+            font-weight: bold;
+            font-style: italic;
+        }
+        /*
+            El selector atributo se indica con corchetes y se aplica
+            a todos los elementos que tengan el atributo indicado entre
+            los corchetes: 4
+        */
+        [class] { /*Busca todos los elementos que tengan el atributo
+                    class sin importal el valor*/
+            color: orangered
+        }
+
+        [draggable] {
+            text-decoration: underline;
+        }
+
+        /*El selector ID se indica con # y aplica a todos los elementos
+            que en su atributo id tengan el valor indicado. En este
+            ejempplo la regla se aplica a todos los elementos que
+            tengan en su atributo id el valor "e3": 5
+        */
+        #e3 {
+            text-decoration: line-through;
+        }
+
+        /*Estas 2 reglas aplican de la misma manera. Todos los
+            elementos li que tengan en su atributo id el valor e3
+        */
+        li[id="e3"] {
+            text-decoration: overline;
+        }
+
+        li#e3 {
+            text-decoration: overline;
+        }
+
+        [class]{/*Aplica a todos los elementos que tengan el atributo
+                    class sin importar el valor
+                */
+            font-size:20px;
+        }
+        [class="item"] { /*Aplica a todos los elementos que tengan el
+                             atributo class con valor "item"*/
+            font-size: 20px;
+        }
+
+        [class*="item"] { /*Aplica a todos los elementos que tengan el
+                             atributo class y que en su valor contenga
+                              "item". Por ejemplo, item2, 2item, 
+                              algo-item*/
+            font-size: 20px;
+        }
+
+        [class^="item"] { /*Aplica a todos los elementos que tengan el
+                             atributo class y que su valor inicie con
+                              "item". Por ejemplo, item2, 
+                              item-algo*/
+            font-size: 20px;
+        }
+
+        [class$="item"] { /*Aplica a todos los elementos que tengan el
+                             atributo class y que su valor finalice con
+                              "item". Por ejemplo, 2item, 
+                              algo-item*/
+            font-size: 20px;
+        }
+
+        /*
+            Las reglas combinadas con el selector id (#) van a tener
+            mayor especificidad que los selectores id solitos.
+        */
+
+        /*
+            Las reglas CSS tienen 2 niveles de especificidad
+            1.- La especificidad declarativa:
+                1.1.- Es más específico la regla en línea que la regla
+                de página
+                1.2.- Es más específico la regla de página que la regla
+                referenciada
+            2.- La especificidad de reglas
+        */
+    </style>
+</head>
+<body>
+    <h1 style="font-size:32px; color:red;">Título h1</h1>
+    <h1>Título h1 sin estilo en línea</h1>
+    <p>
+        Esto es el texto dentro del elemento p
+    </p>
+    <h2>subtitulo h2</h2>
+    <span>
+        Esto es el texto dentro del elemento span
+    </span>
+
+    <img src="../media/images/img_fresa.jpg" />
+
+    <ul>
+        <li class="item">Elemento 1</li>
+        <li class="item" draggable="false">Elemento 2</li>
+        <li id="e3" class="item2" draggable="true">Elemento 3</li>
+    </ul>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Columna 1</th>
+                <th>Columna 2</th>
+                <th>Columna 3</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>F1 C1</td>
+                <td>F1 C2</td>
+                <td>F1 C3</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
