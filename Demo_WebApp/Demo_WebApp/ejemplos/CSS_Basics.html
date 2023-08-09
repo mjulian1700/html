@@ -155,9 +155,25 @@
             font-size: xx-large; /*32px*/
             font-size: 36px;/*px -> pixels*/
         }
-        
-        .titulo-principal{
+
+        .titulo-principal {
+            /*em hace referencia al tamaño de letra del padre. En este
+                caso si el padre tiene un tamaño de letra de 36px,
+                entonces 1em equivale a 1*36px, 2em equivale a 2*36px.
+            */
             font-size: 1em;
+        }
+
+        .subtitulo {
+            font-size: 1rem;/*rem hace referencia al root element (html)*/
+        }
+        .subtitulo-h3 {
+            /*vw hace referencia al tamaño del viewport.
+                vw = viewport width, vh = viewport height
+                1vw = 1% del tamaño del ancho del viewport, Por ejemplo
+                si el vw = 1000px -> 1vw = 10px, 2vw = 20px
+            */
+            font-size: 1vw;
         }
     </style>
 </head>
@@ -199,6 +215,9 @@
 
     <div class="lorem-ipsum">
         <h1 class="titulo-principal">Lorem Ipsum</h1>
+        <h2 class="subtitulo">Lorem Ipsum-h2</h2>
+        <h3 class="subtitulo-h3">Lorem Ipsum-h3</h3>
+        Este es texto del div
     </div>
 
     <p class="lorem-ipsum">
