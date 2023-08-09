@@ -96,11 +96,12 @@
             text-decoration: overline;
         }
 
-        [class]{/*Aplica a todos los elementos que tengan el atributo
+        [class] { /*Aplica a todos los elementos que tengan el atributo
                     class sin importar el valor
                 */
-            font-size:20px;
+            font-size: 20px;
         }
+
         [class="item"] { /*Aplica a todos los elementos que tengan el
                              atributo class con valor "item"*/
             font-size: 20px;
@@ -108,21 +109,21 @@
 
         [class*="item"] { /*Aplica a todos los elementos que tengan el
                              atributo class y que en su valor contenga
-                              "item". Por ejemplo, item2, 2item, 
+                              "item". Por ejemplo, item2, 2item,
                               algo-item*/
             font-size: 20px;
         }
 
         [class^="item"] { /*Aplica a todos los elementos que tengan el
                              atributo class y que su valor inicie con
-                              "item". Por ejemplo, item2, 
+                              "item". Por ejemplo, item2,
                               item-algo*/
             font-size: 20px;
         }
 
         [class$="item"] { /*Aplica a todos los elementos que tengan el
                              atributo class y que su valor finalice con
-                              "item". Por ejemplo, 2item, 
+                              "item". Por ejemplo, 2item,
                               algo-item*/
             font-size: 20px;
         }
@@ -153,8 +154,46 @@
             font-size: large; /*18px*/
             font-size: x-large; /*24px*/
             font-size: xx-large; /*32px*/
-            font-size: 36px;/*px -> pixels*/
-            font-family: 'Comic Sans MS'
+            font-size: 36px; /*px -> pixels*/
+            font-family: 'Comic Sans MS', Arial, 'Century Schoolbook';
+            font-weight: lighter;
+            font-weight: normal;
+            font-weight: bold;
+            font-weight: bolder;
+            font-weight: 100;
+            font-weight: 200;
+            font-weight: 300;
+            font-weight: 400;
+            font-weight: 500;
+            font-weight: 600;
+            font-weight: 700;
+            font-weight: 800;
+            font-weight: 900;
+            font-style: italic;
+            font-style: normal;
+            font-style: oblique;
+            letter-spacing: 5px;
+            line-height: 30px;
+            text-decoration: blink;
+            text-decoration: dashed;
+            text-decoration: dotted;
+            text-decoration: double;
+            text-decoration: from-font;
+            text-decoration: grammar-error;
+            text-decoration: line-through;
+            text-decoration: overline;
+            text-decoration: solid;
+            text-decoration: underline;
+            text-decoration: wavy;
+            text-decoration: spelling-error;
+            text-transform: capitalize;
+            text-transform: lowercase;
+            text-transform: uppercase;
+            text-align: left;
+            text-align: right;
+            text-align: center;
+            text-align: justify;
+            text-indent: 50px;
         }
 
         .titulo-principal {
@@ -166,8 +205,9 @@
         }
 
         .subtitulo {
-            font-size: 1rem;/*rem hace referencia al root element (html)*/
+            font-size: 1rem; /*rem hace referencia al root element (html)*/
         }
+
         .subtitulo-h3 {
             /*vw hace referencia al tamaño del viewport.
                 vw = viewport width, vh = viewport height
@@ -175,6 +215,38 @@
                 si el vw = 1000px -> 1vw = 10px, 2vw = 20px
             */
             font-size: 1vw;
+        }
+
+        table, thead, tbody, th, td {
+            /*Es posible aplicar el estilo de manera abreviada
+                grosor, estilo, color
+            */
+            border-left: 5px solid black;
+            border-left-width: 5px;
+            border-left-style: solid;
+            border-left-color: black;
+            /*Esta abreviación aplica a todos los lados*/
+            border: 5px solid black;
+        }
+
+        .ej1-table {
+            outline: none;
+            border: 2px solid black;
+        }
+
+        .ej1-row {
+            outline: none;
+            border: none;
+            border-top: 2px solid black;
+            border-bottom: 2px solid black;
+        }
+
+        .ej1-cell-f {
+            border-left: 2px solid black;
+        }
+
+        .ej1-cell-e {
+            border-right: 2px solid black;
         }
     </style>
 </head>
@@ -210,6 +282,23 @@
                 <td>F1 C1</td>
                 <td>F1 C2</td>
                 <td>F1 C3</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="ej1-table">
+        <thead class="ej1-row">
+            <tr class="ej1-row">
+                <th class="ej1-row ej1-cell-f">Columna 1</th>
+                <th class="ej1-row">Columna 2</th>
+                <th class="ej1-row ej1-cell-e">Columna 3</th>
+            </tr>
+        </thead>
+        <tbody class="ej1-row">
+            <tr class="ej1-row">
+                <td class="ej1-row ej1-cell-f">F1 C1</td>
+                <td class="ej1-row">F1 C2</td>
+                <td class="ej1-row ej1-cell-e">F1 C3</td>
             </tr>
         </tbody>
     </table>
