@@ -261,7 +261,35 @@
             */
             ul li {
                 outline: none;
-                border: 1px solid black
+                border: 1px solid black;
+                /*padding deja un espacio entre el border y
+                    el contenido. En este caso se deja un espacio de 
+                    5px entre el borde y el contenido. Esta es una
+                    forma abrevidad, se aplican 5px a todos los lados.
+                */
+                padding: 5px;
+                /*arriba, derecha, abajo, izq*/
+                padding: 5px 5px 5px 5px;
+                /*El primer 5px aplica para arriba y abajo
+                    el segundo 5px aplica a la izquierda y derecha
+                */
+                padding: 10px 10px;
+                /*margin deja un espacio entre el border y
+                    los elementos que lo rodean. En este caso se
+                    deja un espacio de 5px entre el borde y el
+                    resto de elementos. Esta es una forma abrevidad, se aplican
+                    5px a todos los lados.
+                */
+                margin: 5px;
+                /*arriba, derecha, abajo, izq*/
+                margin: 5px 5px 5px 5px;
+                /*El primer 5px aplica para arriba y abajo
+                    el segundo 5px aplica a la izquierda y derecha
+                */
+                margin: 20px 20px;
+
+                /*eje-x, eje-y, efecto blur (opt), radius (opt), color*/
+                box-shadow: 5px 5px red;
             }
     </style>
 </head>
