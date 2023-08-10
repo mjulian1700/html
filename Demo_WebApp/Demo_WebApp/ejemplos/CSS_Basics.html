@@ -251,13 +251,18 @@
     </style>
 
     <style type="text/css">
-        ul{
-            list-style-type:none
+        ul {
+            outline: none;
+            list-style-type: none
         }
 
-        ul li{
-            border: 1px solid black
-        }
+            /*Este estilo aplica a todos los elementos li que estén
+                dentro de un elemento ul sin importar el nivel
+            */
+            ul li {
+                outline: none;
+                border: 1px solid black
+            }
     </style>
 </head>
 <body>
