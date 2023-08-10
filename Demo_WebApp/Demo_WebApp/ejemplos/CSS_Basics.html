@@ -263,7 +263,7 @@
                 outline: none;
                 border: 1px solid black;
                 /*padding deja un espacio entre el border y
-                    el contenido. En este caso se deja un espacio de 
+                    el contenido. En este caso se deja un espacio de
                     5px entre el borde y el contenido. Esta es una
                     forma abrevidad, se aplican 5px a todos los lados.
                 */
@@ -287,10 +287,40 @@
                     el segundo 5px aplica a la izquierda y derecha
                 */
                 margin: 20px 20px;
-
-                /*eje-x, eje-y, efecto blur (opt), radius (opt), color*/
-                box-shadow: 5px 5px red;
+                /*eje-x, eje-y, efecto blur (opt), grosor del blur (opt), color*/
+                box-shadow: -5px -5px red; /*color precargado*/
+                /*color con rgb de 0 a 255 para cada valor*/
+                box-shadow: -5px -5px rgb(255, 0, 0);
+                /*color con rgba de 0 a 255 para rgb y de 0 a 1 para el a
+                    donde 0 es transparente y 1 sin transparencia
+                */
+                box-shadow: -5px -5px rgba(255, 0, 0, .7);
+                box-shadow: 5px 5px 5px 5px rgba(50, 50, 50, .7);
             }
+
+        a:hover {
+            color: red;
+            border: 1px solid black;
+            font-size: 150%;
+        }
+
+        a:link {
+            color: green;
+        }
+
+        a:visited {
+            color: black;
+        }
+
+        input:focus{
+            background-color: green;
+        }
+
+        #div-text-img:hover {
+            color: red;
+            border: 1px solid black;
+            font-size: 150%;
+        }
     </style>
 </head>
 <body>
@@ -365,5 +395,19 @@
         <li>Item 4</li>
         <li>Item 5</li>
     </ul>
+
+    <a href="Arreglos.html" target="_blank">Arreglos</a>
+    <a href="Geolocation.html" target="_blank">Arreglos</a>
+    <a href="Objetos.html" target="_blank">Arreglos</a>
+
+    <form>
+        Input: <input type="text" />
+    </form>
+
+    <div id="div-text-img">
+        Este es el texto del div acompañado de una imagen
+        <img src="../media/images/img_fresa.jpg"
+             style="height:100px; width:100px" />
+    </div>
 </body>
 </html>
