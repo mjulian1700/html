@@ -337,7 +337,17 @@
         }
 
         #img-rotar:hover{
-            transform: rotate(180deg);
+            animation-name: rotar;
+            animation-duration: 1s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+            animation-delay: 5s;
+        }
+
+        @keyframes rotar{
+            100% {
+                transform: rotate(360deg);
+            }
         }
     </style>
 </head>
