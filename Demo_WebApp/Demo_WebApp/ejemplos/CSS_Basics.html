@@ -319,7 +319,25 @@
         #div-text-img:hover {
             color: red;
             border: 1px solid black;
-            font-size: 150%;
+            /*transform: scale(1.2);*/
+        }
+
+        ul li:hover {
+            transform: scale(1.05);
+        }
+
+        #p-tooltip {
+            display: none;
+            background-color: yellow;
+            padding: 20px;
+        }
+
+        #div-tooltip:hover p#p-tooltip {
+            display: block;
+        }
+
+        #img-rotar:hover{
+            transform: rotate(180deg);
         }
     </style>
 </head>
@@ -409,5 +427,12 @@
         <img src="../media/images/img_fresa.jpg"
              style="height:100px; width:100px" />
     </div>
+
+    <div id="div-tooltip">
+        Pasa el cursor por acá para ver el tooltip
+        <p id="p-tooltip">Este es el tooltip</p>
+    </div>
+
+    <img id="img-rotar" src="../media/images/img_circular.png" />
 </body>
 </html>

@@ -91,6 +91,8 @@
     <Content Include="js\sitio_pedidos.js" />
     <Content Include="js\sitio_productos.js" />
     <Content Include="js\sitio_variables_globales.js" />
+    <Content Include="media\images\img_circular.jpg" />
+    <Content Include="media\images\img_circular.png" />
     <Content Include="media\images\img_fresa.jpg" />
     <Content Include="media\images\img_mango.jpg" />
     <Content Include="media\images\img_melon.jpg" />
