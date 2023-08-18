@@ -70,6 +70,7 @@
     <Content Include="ejemplos\Almacenamiento.html" />
     <Content Include="ejemplos\Arreglos.html" />
     <Content Include="ejemplos\CSS_Basics.html" />
+    <Content Include="ejemplos\Display.html" />
     <Content Include="ejemplos\formatoNumeros.html" />
     <Content Include="ejemplos\Geolocation.html" />
     <Content Include="ejemplos\ManejoErrores.html" />
@@ -91,6 +92,10 @@
     <Content Include="js\sitio_pedidos.js" />
     <Content Include="js\sitio_productos.js" />
     <Content Include="js\sitio_variables_globales.js" />
+    <Content Include="media\icons\icon_contacto.svg" />
+    <Content Include="media\icons\icon_home.svg" />
+    <Content Include="media\icons\icon_pedidos.svg" />
+    <Content Include="media\icons\icon_productos.svg" />
     <Content Include="media\images\img_circular.jpg" />
     <Content Include="media\images\img_circular.png" />
     <Content Include="media\images\img_fresa.jpg" />

@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿<!--Pagina de íconos
+https://www.flaticon.es/icon-fonts-mas-descargados/2-->
+
+<!DOCTYPE html>
 <html lang="es-mx">
 <head>
     <meta charset="utf-8" />
@@ -36,12 +39,12 @@
             display: none;
         }
 
-            #img-rotar {
-                animation-name: rotar;
-                animation-duration: 0.5s;
-                animation-iteration-count: infinite;
-                animation-timing-function: linear;
-            }
+        #img-rotar {
+            animation-name: rotar;
+            animation-duration: 0.5s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+        }
 
         @keyframes rotar {
             100% {
@@ -53,13 +56,27 @@
 <body>
     <header>
         <img />
-        <nav>
-            <ul>
-                <li><a href="#" id="home-page">Home</a></li>
-                <li><a href="#" id="productos-page">Productos</a></li>
-                <li><a href="#" id="pedidos-page">Pedidos</a></li>
-                <li><a href="#" id="contacto-page">Contacto</a></li>
-            </ul>
+        <nav style="display:block;">
+            <div style="display:inline; margin:10px;">
+                <a href="#" id="home-page">
+                    <img src="../media/icons/icon_home.svg" style="width: 20px; height: 20px;" /> Home
+                </a>
+            </div>
+            <div style="display: inline; margin: 10px;">
+                <a href="#" id="productos-page">
+                    <img src="../media/icons/icon_productos.svg" style="width: 20px; height: 20px;" />Productos
+                </a>
+            </div>
+            <div style="display: inline; margin: 10px;">
+                <a href="#" id="pedidos-page">
+                    <img src="../media/icons/icon_pedidos.svg" style="width: 20px; height: 20px;" /> Pedidos
+                </a>
+            </div>
+            <div style="display: inline; margin: 10px;">
+                <a href="#" id="contacto-page">
+                    <img src="../media/icons/icon_contacto.svg" style="width: 20px; height: 20px;" /> Contacto
+                </a>
+            </div>
         </nav>
     </header>
     <main id="html-dynamic-content">
