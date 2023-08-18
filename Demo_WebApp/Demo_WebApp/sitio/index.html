@@ -12,6 +12,43 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0" />
     <title>Mercadito de Finanzas</title>
+
+    <style type="text/css">
+        th, td {
+            border: 2px solid black;
+        }
+
+        .articulo-producto {
+            border: 2px solid black;
+            box-shadow: 5px 5px 5px 5px rgba(50, 50, 50, .7);
+            margin: 20px;
+            padding: 20px;
+        }
+
+        #img-rotar {
+            background-color: rgba(0,0,0,0);
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            z-index: 100000;
+            top: 50%;
+            left: 50%;
+            display: none;
+        }
+
+            #img-rotar {
+                animation-name: rotar;
+                animation-duration: 0.5s;
+                animation-iteration-count: infinite;
+                animation-timing-function: linear;
+            }
+
+        @keyframes rotar {
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -29,6 +66,7 @@
         <h1>Mercadito virtual de Finanzas</h1>
     </main>
     <footer></footer>
+    <img id="img-rotar" src="../media/images/img_circular.png" />
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <script src="../js/sitio_modelos.js"></script>
     <script src="../js/sitio_variables_globales.js"></script>

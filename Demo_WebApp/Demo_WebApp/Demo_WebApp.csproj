@@ -70,6 +70,7 @@
     <Content Include="ejemplos\Almacenamiento.html" />
     <Content Include="ejemplos\Arreglos.html" />
     <Content Include="ejemplos\CSS_Basics.html" />
+    <Content Include="ejemplos\disp.html" />
     <Content Include="ejemplos\formatoNumeros.html" />
     <Content Include="ejemplos\Geolocation.html" />
     <Content Include="ejemplos\ManejoErrores.html" />

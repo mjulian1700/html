@@ -53,6 +53,8 @@ function productos_loadContenidoEdicion(fruta, catalogSection, esEdicion) {
     const desc = document.createElement('p')
     const precio = document.createElement('p')
 
+    //article.className = "articulo-producto class2 class3 class4"
+    article.setAttribute("class", "articulo-producto")
     subtitulo.textContent = fruta.nombre
     imagen.src = fruta.imgUri
     desc.textContent = fruta.descripcion
@@ -91,6 +93,7 @@ function productos_mostrarElementoEdicion(fruta, catalogSection, article) {
     divMapa.id = 'map'
     divMapa.style.width = "50%"
     divMapa.style.height = "200px"
+    divMapa.setAttribute("class", "articulo-producto")
 
     const divVideo = document.createElement("div")
     const video = document.createElement("video")
@@ -100,6 +103,7 @@ function productos_mostrarElementoEdicion(fruta, catalogSection, article) {
     video.poster = fruta.imgUri
     video.width = "400"
     video.height = "200"
+    divVideo.setAttribute("class", "articulo-producto")
 
     const btnSiguiente = document.createElement("button")
     btnSiguiente.textContent = "Siguiente Video"

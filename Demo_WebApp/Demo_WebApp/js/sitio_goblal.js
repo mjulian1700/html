@@ -67,6 +67,7 @@ function mostrarContenidoHtml(event, objectoEdicion, url) {
 }
 
 function getHtmlContent(url, metodo, objetoEdicion, callbackSuccess, callbackError) {
+    spin.style.display = "block";
     let xhr = new XMLHttpRequest()
     xhr.open(metodo, url, true)
     xhr.setRequestHeader('Cache-Control', 'no-cache, no-store, max-age=0')
@@ -80,6 +81,10 @@ function getHtmlContent(url, metodo, objetoEdicion, callbackSuccess, callbackErr
     xhr.onreadystatechange = function () {
         if (callbackSuccess) {
             callbackSuccess(this, objetoEdicion, url)
+
+            if (this.readyState == 4) {
+                spin.style.display = "none";
+            }
         }
     }
     xhr.send()

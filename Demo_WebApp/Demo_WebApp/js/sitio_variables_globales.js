@@ -4,3 +4,4 @@
 const lsPedidosTemp = "pedidos_temp"
 const pedidos = []
 let catalogoProductos = []
+const spin = document.querySelector("#img-rotar")
