@@ -53,7 +53,6 @@ function productos_loadContenidoEdicion(fruta, catalogSection, esEdicion) {
     const desc = document.createElement('p')
     const precio = document.createElement('p')
 
-    //article.className = "articulo-producto class2 class3 class4"
     article.setAttribute("class", "articulo-producto")
     subtitulo.textContent = fruta.nombre
     imagen.src = fruta.imgUri
