@@ -71,6 +71,7 @@
     <Content Include="ejemplos\Arreglos.html" />
     <Content Include="ejemplos\CSS_Basics.html" />
     <Content Include="ejemplos\Display.html" />
+    <Content Include="ejemplos\FexBox.html" />
     <Content Include="ejemplos\formatoNumeros.html" />
     <Content Include="ejemplos\Geolocation.html" />
     <Content Include="ejemplos\ManejoErrores.html" />
