@@ -83,6 +83,44 @@
             justify-content: space-between;
             justify-content: space-evenly;
         }
+
+        .flex-container-align > div {
+            font-size: 20px;
+            word-spacing: 10px;
+            margin: 10px;
+        }
+
+        .flex-container-align {
+            display: flex;
+            height: 300px;
+            flex-flow: row wrap;
+            justify-content: center;
+            /**/
+            align-items: stretch;
+            align-items: flex-start;
+            align-items: flex-end;
+            align-items: center;
+            align-items: baseline;
+        }
+
+        .flex-container-content > div {
+            font-size: 20px;
+            word-spacing: 10px;
+            margin: 10px;
+        }
+        .flex-container-content {
+            display: flex;
+            height: 300px;
+            flex-flow: row wrap;
+            justify-content: center;
+            align-content: stretch;
+            align-content: flex-start;
+            align-content: flex-end;
+            align-content: center;
+            align-content: space-between;
+            align-content: space-around;
+            align-content: space-evenly;
+        }
     </style>
 </head>
 <body>
@@ -156,6 +194,36 @@
     <br />
     <hr />
     <div class="flex-container-justify" style="background-color: lightgray;">
+        <div style="background-color: lightgreen">div 1 con wrap</div>
+        <div style="background-color: lightyellow">div 2 con wrap</div>
+        <div style="background-color: lightcoral">div 3 con wrap</div>
+        <div style="background-color: lightcoral">div 4 con wrap</div>
+    </div>
+
+    <br />
+    <hr />
+    <div class="flex-container-align" style="background-color: lightgray;">
+        <div style="background-color: lightgreen">div 1 con wrap</div>
+        <div style="background-color: lightyellow">div 2 con wrap</div>
+        <div style="background-color: lightcoral">div 3 con wrap</div>
+        <div style="background-color: lightcoral">div 4 con wrap</div>
+    </div>
+
+    <br />
+    <hr />
+    <div class="flex-container-content" style="background-color: lightgray;">
+        <div style="background-color: lightgreen">div 1 con wrap</div>
+        <div style="background-color: lightyellow">div 2 con wrap</div>
+        <div style="background-color: lightcoral">div 3 con wrap</div>
+        <div style="background-color: lightcoral">div 4 con wrap</div>
+        <div style="background-color: lightgreen">div 1 con wrap</div>
+        <div style="background-color: lightyellow">div 2 con wrap</div>
+        <div style="background-color: lightcoral">div 3 con wrap</div>
+        <div style="background-color: lightcoral">div 4 con wrap</div>
+        <div style="background-color: lightgreen">div 1 con wrap</div>
+        <div style="background-color: lightyellow">div 2 con wrap</div>
+        <div style="background-color: lightcoral">div 3 con wrap</div>
+        <div style="background-color: lightcoral">div 4 con wrap</div>
         <div style="background-color: lightgreen">div 1 con wrap</div>
         <div style="background-color: lightyellow">div 2 con wrap</div>
         <div style="background-color: lightcoral">div 3 con wrap</div>
