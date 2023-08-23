@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Template Areas</title>
+    <style type="text/css">
+        main {
+            color: gainsboro;
+            max-width: 100vw;
+            min-height: 100vh;
+            display: grid;
+            /**/
+            grid-template-columns: 100%;
+            /*fr= Fractional unit = 1 parte del espacio disponible*/
+            grid-template-rows: 100px 50px 1fr 100px 200px;
+            grid-template-areas:
+                "my-header my-header my-header"
+                "my-nav my-nav my-nav"
+                "my-section my-section my-section"
+                "my-aside my-aside my-aside"
+                "my-footer my-footer my-footer";
+        }
+
+        @media (min-width: 600px) and (max-width: 1000px){
+            main {
+                grid-template-columns: 20vw 20vw 1fr;
+                grid-template-rows: 100px 1fr 100px;
+                grid-template-areas:
+                    "my-header my-header my-header"
+                    "my-nav my-aside my-section"
+                    "my-footer my-footer my-footer";
+            }
+        }
+
+        @media (min-width: 1001px) {
+            main {
+                grid-template-columns: 30vw 1fr;
+                /*fr= Fractional unit = 1 parte del espacio disponible*/
+                grid-template-rows: 100px 50px 1fr 100px;
+                grid-template-areas:
+                    "my-header my-header"
+                    "my-nav my-nav"
+                    "my-aside my-section"
+                    "my-footer my-footer";
+            }
+        }
+
+        header {
+            grid-area: my-header;
+            background-color: blueviolet;
+        }
+
+        nav {
+            grid-area: my-nav;
+            background-color: cornflowerblue
+        }
+
+        aside {
+            grid-area: my-aside;
+            background-color: darkmagenta;
+        }
+
+        section {
+            grid-area: my-section;
+            background-color: indigo;
+        }
+
+        footer {
+            grid-area: my-footer;
+            background-color: darkorchid;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <header>Encabezado</header>
+        <nav>Barra de navegación</nav>
+        <section>Sección</section>
+        <aside>Articulos relacionados</aside>
+        <footer>Pié de pagina</footer>
+    </main>
+</body>
+</html>
