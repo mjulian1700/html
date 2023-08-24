@@ -21,7 +21,7 @@
                 "my-footer my-footer my-footer";
         }
 
-        @media (min-width: 600px) and (max-width: 1000px){
+        @media (min-width: 600px) and (max-width: 1000px) {
             main {
                 grid-template-columns: 20vw 20vw 1fr;
                 grid-template-rows: 100px 1fr 100px;
@@ -36,7 +36,7 @@
             main {
                 grid-template-columns: 30vw 1fr;
                 /*fr= Fractional unit = 1 parte del espacio disponible*/
-                grid-template-rows: 100px 50px 1fr 100px;
+                grid-template-rows: 100px auto 1fr 100px;
                 grid-template-areas:
                     "my-header my-header"
                     "my-nav my-nav"
@@ -69,18 +69,77 @@
             grid-area: my-footer;
             background-color: darkorchid;
         }
+
+        .nav-visible {
+            position: relative;
+            height: 50px;
+        }
+
+        .nav-oculto {
+            position: absolute;
+            display: none;
+        }
+
+        .img-rotar{
+            animation-name: rotar;
+            animation-duration: 0.5s;
+            animation-iteration-count: 1;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards;
+        }
+
+        .img-rotar-neg {
+            animation-name: rotar-neg;
+            animation-duration: 0.5s;
+            animation-iteration-count: 1;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes rotar {
+            100% {
+                transform: rotate(90deg);
+            }
+        }
+
+        @keyframes rotar-neg{
+            from {
+                transform: rotate(90deg);
+            }
+            to {
+                transform: rotate(0deg);
+            }
+        }
     </style>
 </head>
 <body>
     <main>
-        <header>
+        <header style="position:relative;">
             Encabezado
-            <img src="../media/icons/icon_home.svg" style="width: 30px; height: 30px;" />
+            <img id="icon-menu" src="../media/icons/icon_home.svg"
+                 style="width: 30px; height: 30px;
+       position: absolute; bottom: 0px; left: 0px;
+       cursor: pointer;" />
         </header>
-        <nav>Barra de navegación</nav>
+        <nav id="nav" class="nav-oculto">Barra de navegación</nav>
         <section>Sección</section>
         <aside>Articulos relacionados</aside>
         <footer>Pié de pagina</footer>
     </main>
+
+    <script type="text/javascript">
+        let icon = document.querySelector("#icon-menu")
+        icon.addEventListener("click", () => {
+            let nav = document.querySelector("#nav")
+            if (nav.className.includes("visible")) {
+                nav.className = "nav-oculto"
+                icon.className = "img-rotar-neg"
+            }
+            else {
+                nav.className = "nav-visible"
+                icon.className = "img-rotar"
+            }
+        })
+    </script>
 </body>
 </html>
