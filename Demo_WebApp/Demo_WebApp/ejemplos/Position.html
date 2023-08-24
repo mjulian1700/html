@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style type="text/css">
+        div{
+            display: block;
+            margin: 10px;
+        }
+
+        #d2{
+            left: 20vw;
+            top: 20vh;
+        }
+        #d5 {
+            position: static; /*Este es el comportamiento normal*/
+            /*Permite que el elemento se desplace respecto a
+                lo que hubiera sido su posición normal. El
+                resto de los elementos continúan en su posición 
+                ignorando el que se desplaza. Es decir, se queda
+                el hueco del elemento desplazado
+            */
+            position: relative;
+            /*Permite que un elemento se desplace respecto
+                al origen de coordenadas del primer elemento
+                contenedor. Si éste no está posicionado, 
+                entonces lo hace respecto a la esquina superior
+                izquierda de del viewport. Los elementos actuan
+                como si el elemento desplazado no existiera
+            */
+            position: absolute;
+            /*Permite que un elemento se desplace respecto
+                al origen de coordenadas del primer elemento
+                contenedor. Si éste no está posicionado, 
+                entonces lo hace respecto a la esquina superior
+                izquierda de del viewport. Los elementos actuan
+                como si el elemento desplazado no existiera.
+                El elemento se queda fijo en la pantalla
+                incluso de si se hace scroll.
+            */
+            position: fixed;
+            left: 20vw;
+            top: 20vh;
+        }
+    </style>
+</head>
+<body>
+    <div id="d1" style="border: 3px dashed red">Este es el div 1</div>
+    <div id="d2" style="border: 3px dashed green ">Este es el div 2</div>
+    <div id="d3" style="border: 3px dashed blue">Este es el div 3</div>
+
+    <br />
+    <hr />
+    <div id="d4" style="border: 3px dashed red">Este es el div 4</div>
+    <div id="d5" style="border: 3px dashed green ">Este es el div 5</div>
+    <div id="d6" style="border: 3px dashed blue">Este es el div 6</div>
+</body>
+</html>
