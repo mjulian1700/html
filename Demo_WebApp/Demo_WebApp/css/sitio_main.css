@@ -1,0 +1,60 @@
+﻿main#main-container {
+    color: gainsboro;
+    max-width: 100vw;
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 15vh auto 1fr 15vh;
+    grid-template-areas:
+        "my-header"
+        "my-nav"
+        "my-section"
+        "my-footer";
+}
+
+header#main-header {
+    grid-area: my-header;
+    background-color: blueviolet;
+}
+
+nav#main-nav {
+    grid-area: my-nav;
+    background-color: cornflowerblue;
+    display: block;
+}
+
+    nav#main-nav > div {
+        display: inline;
+        margin: 10px;
+    }
+
+img.menu-item-icon {
+    width: 30px;
+    height: 30px;
+}
+
+div#html-dynamic-content {
+    grid-area: my-section;
+    background-color: indigo;
+}
+
+footer#main-footer {
+    grid-area: my-footer;
+    background-color: darkorchid;
+}
+
+@media (min-width: 400px) and (max-width: 1000px) {
+    main#main-container {
+        grid-template-columns: auto 1fr;
+        grid-template-rows: 15vh 1fr 15vh;
+        grid-template-areas:
+            "my-header my-header"
+            "my-nav my-section"
+            "my-footer my-footer";
+    }
+
+    nav#main-nav > div {
+        display: block;
+        margin: 10px 20px 10px 10px;
+    }
+}

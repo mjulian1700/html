@@ -15,9 +15,8 @@ https://www.flaticon.es/icon-fonts-mas-descargados/2-->
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0" />
     <title>Mercadito de Finanzas</title>
-
+    <link rel="stylesheet" href="../css/sitio_main.css" />
     <style type="text/css">
-        
         th, td {
             border: 2px solid black;
         }
@@ -27,7 +26,7 @@ https://www.flaticon.es/icon-fonts-mas-descargados/2-->
             box-shadow: 5px 5px 5px 5px rgba(50, 50, 50, .7);
             margin: 20px;
             padding: 20px;
-            display:inline-block;
+            display: inline-block;
         }
 
         #img-rotar {
@@ -56,35 +55,38 @@ https://www.flaticon.es/icon-fonts-mas-descargados/2-->
     </style>
 </head>
 <body>
-    <header>
-        <img />
-        <nav style="display:block;">
-            <div style="display:inline; margin:10px;">
+    <main id="main-container">
+        <header id="main-header">
+            <h1>Mercadito virtual de Finanzas</h1>
+            <img />
+        </header>
+        <nav id="main-nav">
+            <div>
                 <a href="#" id="home-page">
-                    <img src="../media/icons/icon_home.svg" style="width: 30px; height: 30px;" /> Home
+                    <img class="menu-item-icon" src="../media/icons/icon_home.svg" /> Home
                 </a>
             </div>
-            <div style="display: inline; margin: 10px;">
+            <div>
                 <a href="#" id="productos-page">
-                    <img src="../media/icons/icon_productos.svg" style="width: 30px; height: 30px;" />Productos
+                    <img class="menu-item-icon" src="../media/icons/icon_productos.svg"/>Productos
                 </a>
             </div>
-            <div style="display: inline; margin: 10px;">
+            <div>
                 <a href="#" id="pedidos-page">
-                    <img src="../media/icons/icon_pedidos.svg" style="width: 20px; height: 20px;" /> Pedidos
+                    <img class="menu-item-icon" src="../media/icons/icon_pedidos.svg"/> Pedidos
                 </a>
             </div>
-            <div style="display: inline; margin: 10px;">
+            <div>
                 <a href="#" id="contacto-page">
-                    <img src="../media/icons/icon_contacto.svg" style="width: 20px; height: 20px;" /> Contacto
+                    <img class="menu-item-icon" src="../media/icons/icon_contacto.svg"/> Contacto
                 </a>
             </div>
         </nav>
-    </header>
-    <main id="html-dynamic-content">
-        <h1>Mercadito virtual de Finanzas</h1>
+        <div id="html-dynamic-content">
+
+        </div>
+        <footer id="main-footer"></footer>
     </main>
-    <footer></footer>
     <img id="img-rotar" src="../media/images/img_circular.png" />
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <script src="../js/sitio_modelos.js"></script>
