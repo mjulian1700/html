@@ -49,42 +49,6 @@ img#icon-menu {
     display: none;
 }
 
-.img-rotar {
-    animation-name: rotar;
-    animation-duration: 0.5s;
-    animation-iteration-count: 1;
-    animation-timing-function: linear;
-    animation-fill-mode: forwards;
-}
-
-.img-rotar-neg {
-    animation-name: rotar-neg;
-    animation-duration: 0.5s;
-    animation-iteration-count: 1;
-    animation-timing-function: linear;
-    animation-fill-mode: forwards;
-}
-
-@keyframes rotar {
-    from {
-        transform: rotate(0deg);
-    }
-
-    to {
-        transform: rotate(90deg);
-    }
-}
-
-@keyframes rotar-neg {
-    from {
-        transform: rotate(90deg);
-    }
-
-    to {
-        transform: rotate(0deg);
-    }
-}
-
 @media (min-width: 400px) and (max-width: 1000px) {
     main#main-container {
         grid-template-columns: auto 1fr;
@@ -124,6 +88,22 @@ img#icon-menu {
         display: none !important;
     }
 
+    .img-rotar {
+        animation-name: rotar;
+        animation-duration: 0.5s;
+        animation-iteration-count: 1;
+        animation-timing-function: linear;
+        animation-fill-mode: forwards;
+    }
+
+    .img-rotar-neg {
+        animation-name: rotar;
+        animation-duration: 0.5s;
+        animation-iteration-count: 1;
+        animation-timing-function: linear;
+        animation-direction: reverse;
+    }
+
     @keyframes nav-slide-in {
         from {
             margin-left: -15%;
@@ -133,6 +113,26 @@ img#icon-menu {
         to {
             margin-left: 0vw;
             width: 15vw;
+        }
+    }
+
+    @keyframes rotar {
+        from {
+            transform: rotate(0deg);
+        }
+
+        to {
+            transform: rotate(90deg);
+        }
+    }
+
+    @keyframes rotar-neg {
+        from {
+            transform: rotate(90deg);
+        }
+
+        to {
+            transform: rotate(0deg);
         }
     }
 }
