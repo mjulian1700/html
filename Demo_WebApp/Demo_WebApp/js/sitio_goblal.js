@@ -2,6 +2,19 @@
     pedidos.push(pedido)
 }
 
+function index_mostrarOcultarMenu(event) {
+    let icon = event.target;
+    let nav = document.querySelector("#main-nav")
+    if (nav.className.includes("visible")) {
+        nav.className = "nav-oculto"
+        icon.className = "img-rotar-neg"
+    }
+    else {
+        nav.className = "nav-visible"
+        icon.className = "img-rotar"
+    }
+}
+
 window.onload = function () {
     productos_loadStaticContent()
 
@@ -11,6 +24,7 @@ window.onload = function () {
         document.getElementById('productos-page').onclick = link_anchorWithHtmlPages
         document.getElementById('pedidos-page').onclick = link_anchorWithHtmlPages
         document.getElementById('contacto-page').onclick = link_anchorWithHtmlPages
+        let icon = document.querySelector("#icon-menu").onclick = index_mostrarOcultarMenu
 
         if (typeof (Storage) !== "undefined") {
             let pedidos_temp = recuperarElementoLocalStorage(lsPedidosTemp)

@@ -100,6 +100,7 @@
     <Content Include="js\sitio_variables_globales.js" />
     <Content Include="media\icons\icon_contacto.svg" />
     <Content Include="media\icons\icon_home.svg" />
+    <Content Include="media\icons\icon_menu.svg" />
     <Content Include="media\icons\icon_pedidos.svg" />
     <Content Include="media\icons\icon_productos.svg" />
     <Content Include="media\images\img_circular.jpg" />

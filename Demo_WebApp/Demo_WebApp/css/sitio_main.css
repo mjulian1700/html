@@ -15,6 +15,7 @@
 header#main-header {
     grid-area: my-header;
     background-color: blueviolet;
+    position: relative;
 }
 
 nav#main-nav {
@@ -43,6 +44,47 @@ footer#main-footer {
     background-color: darkorchid;
 }
 
+img#icon-menu {
+    position: absolute;
+    display: none;
+}
+
+.img-rotar {
+    animation-name: rotar;
+    animation-duration: 0.5s;
+    animation-iteration-count: 1;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+}
+
+.img-rotar-neg {
+    animation-name: rotar-neg;
+    animation-duration: 0.5s;
+    animation-iteration-count: 1;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+}
+
+@keyframes rotar {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(90deg);
+    }
+}
+
+@keyframes rotar-neg {
+    from {
+        transform: rotate(90deg);
+    }
+
+    to {
+        transform: rotate(0deg);
+    }
+}
+
 @media (min-width: 400px) and (max-width: 1000px) {
     main#main-container {
         grid-template-columns: auto 1fr;
@@ -56,5 +98,41 @@ footer#main-footer {
     nav#main-nav > div {
         display: block;
         margin: 10px 20px 10px 10px;
+    }
+
+    img#icon-menu {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        bottom: 5px;
+        left: 5px;
+        cursor: pointer;
+        transform: rotate(90deg);
+    }
+
+    .nav-visible {
+        position: relative;
+        animation-name: nav-slide-in;
+        animation-duration: 1s;
+        animation-iteration-count: 1;
+        animation-timing-function: ease-out;
+    }
+
+    .nav-oculto {
+        position: absolute;
+        display: none !important;
+    }
+
+    @keyframes nav-slide-in {
+        from {
+            margin-left: -15%;
+            width: 0vw;
+        }
+
+        to {
+            margin-left: 0vw;
+            width: 15vw;
+        }
     }
 }
