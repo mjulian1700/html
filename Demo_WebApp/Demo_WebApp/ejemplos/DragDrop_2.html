@@ -37,15 +37,30 @@
 </head>
 <body>
     <div id="box">
-        <div id="box1" draggable="true" ondragstart="drag(event)"></div>
-        <div id="box2" draggable="true" ondragstart="drag(event)"></div>
+        <div id="box1" draggable="true" ondragstart="drag(event)"
+             ondragend="dragEnd(event)"></div>
+        <div id="box2" draggable="true" ondragstart="drag(event)"
+             ondragend="dragEnd(event)"></div>
+        
         <div id="box3" ondrop="drop(event)"
-             ondragover="allowDrop(event)"></div>
+             ondragover="allowDrop(event)"
+             ondragenter="dragEnter(event)"
+             ondragleave="dragLeave(event)"></div>
     </div>
 
     <script type="text/javascript">
+        function dragEnter(ev) {
+            ev.target.style.transform = 'scale(1.1)'
+        }
+        function dragLeave(ev) {
+            ev.target.style.transform = 'scale(1)'
+        }
+        function dragEnd(ev) {
+            ev.target.style.opacity = '1'
+        }
         function drag(ev) {
             ev.dataTransfer.setData("algo", ev.target.id)
+            ev.target.style.opacity = '0.5'
         }
         function allowDrop(ev) {
             ev.preventDefault()
@@ -54,6 +69,7 @@
             ev.preventDefault()
             let data = ev.dataTransfer.getData("algo")
             ev.target.appendChild(document.getElementById(data))
+            ev.target.style.transform = 'scale(1)'
         }
     </script>
 </body>
