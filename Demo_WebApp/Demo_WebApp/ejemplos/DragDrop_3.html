@@ -4,7 +4,24 @@
     <meta charset="utf-8" />
     <title></title>
     <style type="text/css">
+        .container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
 
+        .box {
+            border: 3px solid black;
+            background-color: beige;
+            border-radius: 10px;
+            padding: 10px;
+            cursor: move;
+        }
+
+            .box.over {
+                border: 3px dotted black;
+                transform: scale(1.1);
+            }
     </style>
 </head>
 <body>
@@ -13,5 +30,59 @@
         <div class="box" draggable="true">Caja B</div>
         <div class="box" draggable="true">Caja C</div>
     </div>
+
+    <script type="text/javascript">
+        let items = document.querySelectorAll('.container .box')
+
+        function dragStart(ev) { //Caja A
+            this.style.opacity = '0.5'
+
+            dragSrcEl = this
+            ev.dataTransfer.setData('text/html', this.innerHTML)
+        }
+
+        function dragOver(ev) {
+            if (ev.preventDefault) {
+                ev.preventDefault()
+            }
+
+            return false;
+        }
+
+        function dragEnter(ev) {
+            this.classList.add('over')
+            console.log(this)
+        }
+
+        function dragLeave(ev) {
+            this.classList.remove('over')
+            console.log(this)
+        }
+
+        function dragEnd(ev) {
+            this.style.opacity = '1'
+            items.forEach(function (item) {
+                item.classList.remove('over')
+            })
+        }
+
+        function drop(ev) { //Caja B
+            //e.stopPropagation()
+
+            if (dragSrcEl !== this) {
+                dragSrcEl.innerHTML = this.innerHTML;
+                this.innerHTML = ev.dataTransfer.getData('text/html')
+            }
+        }
+
+        items.forEach(function (item) {
+            item.addEventListener('dragstart', dragStart)
+            item.addEventListener('dragover', dragOver)
+            item.addEventListener('dragenter', dragEnter)
+            item.addEventListener('dragleave', dragLeave)
+            item.addEventListener('dragend', dragEnd)
+            item.addEventListener('drop', drop)
+        })
+    </script>
 </body>
 </html>
