@@ -36,16 +36,18 @@
     </style>
 </head>
 <body>
-    <div id="box">
+    <div id="box" ondrop="drop(event)"
+             ondragover="allowDrop(event)"
+             ondragenter="dragEnter(event)"
+             ondragleave="dragLeave(event)">
         <div id="box1" draggable="true" ondragstart="drag(event)"
              ondragend="dragEnd(event)"></div>
         <div id="box2" draggable="true" ondragstart="drag(event)"
              ondragend="dragEnd(event)"></div>
         
-        <div id="box3" ondrop="drop(event)"
-             ondragover="allowDrop(event)"
-             ondragenter="dragEnter(event)"
-             ondragleave="dragLeave(event)"></div>
+        <div id="box3" 
+             draggable="true" ondragstart="drag(event)"
+             ondragend="dragEnd(event)"></div>
     </div>
 
     <script type="text/javascript">

@@ -22,19 +22,38 @@
                 border: 3px dotted black;
                 transform: scale(1.1);
             }
+
+        .box1 {
+            background-color: lightcoral;
+            height: 50px;
+        }
+
+        .box2 {
+            background-color: lightgreen;
+            height: 100px;
+        }
+
+        .box3 {
+            background-color: lightblue;
+            height: 150px;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="box" draggable="true">Caja A</div>
-        <div class="box" draggable="true">Caja B</div>
-        <div class="box" draggable="true">Caja C</div>
+        <div class="box box1" draggable="true">Caja A</div>
+        <div class="box box2" draggable="true">Caja B</div>
+        <div class="box box3" draggable="true">Caja C</div>
     </div>
 
     <script type="text/javascript">
+
+        function clicked() {
+            alert('click en h1')
+        }
         let items = document.querySelectorAll('.container .box')
 
-        function dragStart(ev) { //Caja A
+        function dragStart(ev) {
             this.style.opacity = '0.5'
 
             dragSrcEl = this
@@ -51,12 +70,10 @@
 
         function dragEnter(ev) {
             this.classList.add('over')
-            console.log(this)
         }
 
         function dragLeave(ev) {
             this.classList.remove('over')
-            console.log(this)
         }
 
         function dragEnd(ev) {
@@ -66,11 +83,14 @@
             })
         }
 
-        function drop(ev) { //Caja B
-            //e.stopPropagation()
+        function drop(ev) {
+            ev.stopPropagation()
 
             if (dragSrcEl !== this) {
-                dragSrcEl.innerHTML = this.innerHTML;
+                let srcClass = dragSrcEl.className
+                dragSrcEl.innerHTML = this.innerHTML
+                dragSrcEl.className = this.className
+                this.className = srcClass
                 this.innerHTML = ev.dataTransfer.getData('text/html')
             }
         }
