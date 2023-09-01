@@ -1,0 +1,160 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <script type="text/javascript">
+        let bebidas = ['Agua', 'Coca', 'Pepsi']
+        console.log(bebidas)
+        bebidas = new Array('Agua', 'Coca', 'Pepsi')
+        console.log(bebidas)
+
+
+        let edad = 32
+        console.log(edad)
+        edad = new Number(32)
+        console.log(edad)
+
+        let tienePermisos = false
+        console.log(tienePermisos)
+        tienePermisos = new Boolean(false)
+        console.log(tienePermisos)
+
+        let cuadradoNumero = function (valor) {
+            return valor * valor
+        }
+        console.log(cuadradoNumero)
+        cuadradoNumero = new Function('val', 'return val * val')
+        console.log(cuadradoNumero)
+
+        const persona = {
+            nombre: 'Pedro',
+            edad: 32,
+            obtenerNombre() {
+                return "Mi nombre es: " + this.nombre
+            }
+        }
+
+        console.log(persona)
+        console.log(persona.nombre)
+        console.log(persona.edad)
+        console.log(persona.obtenerNombre())
+
+        persona.pasatiempos = 'cantar'
+        persona.obtenerEdad = function () {
+            return "Mi edad es: " + this.edad + " años"
+        }
+        console.log(persona)
+
+        bebidas.descripcion = "Arreglo que contiene bebidas"
+        bebidas.obtenerPrimeraBebida = function () {
+            return this[0]
+        }
+        console.log(bebidas)
+
+        let bebidas2 = new Array('Fanta', "Sidral", "Cerveza")
+        console.log(bebidas2)
+
+        Array.prototype.desc = "Arreglo que contiene elementos"
+        Array.prototype.obtPrimerElemento = function () {
+            return this[0]
+        }
+        console.log(bebidas)
+        console.log(bebidas.desc)
+        console.log(bebidas.obtPrimerElemento())
+
+        console.log(bebidas2)
+        console.log(bebidas2.desc)
+        console.log(bebidas2.obtPrimerElemento())
+
+        let bebidas3 = ['B1', 'B2', 'B3']
+        console.log(bebidas3)
+
+        bebidas3.push("B4")
+        console.log(bebidas3)
+
+        Array.prototype.push = function () {
+            console.log("Se supone que debería agregar un elemento")
+        }
+
+        bebidas.push("B4")
+        console.log(bebidas)
+
+        bebidas2.push("B4")
+        console.log(bebidas2)
+
+        bebidas3.push("B4")
+        console.log(bebidas3)
+
+        class Fruta_V2 {
+            #stockKg
+            #origen
+            constructor(nombre, descripcion, precioKg, stockKg, origen) {
+                this.nombre = nombre
+                this.descripcion = descripcion
+                this.precioKg = precioKg
+                this.#stockKg = stockKg
+                this.#origen = origen
+            }
+
+            getStockKg() {
+                console.log(this.#stockKg)
+            }
+
+            getOrigen() {
+                console.log(this.#origen)
+                this.#calcularGanancia()
+            }
+
+            #calcularGanancia() {
+                console.log("Ganancia!!!!")
+            }
+        }
+
+        class Pera extends Fruta_V2 {
+            constructor(nombre, descripcion, precioKg, stockKg, origen,
+                tipo) {
+                super(nombre, descripcion, precioKg, stockKg, origen)
+                this.tipo = tipo
+            }
+
+            getValores() {
+                console.log(this.tipo)
+                console.log(this.nombre)
+                console.log(this.descripcion)
+                console.log(this.precioKg)
+                console.log(this.origen)
+                console.log(this.stockKg)
+            }
+        }
+
+        const p1 = new Pera("Pera", "Pera Desc", 123, 123, "Puebla",
+            "Chile en nogada")
+        console.log(p1)
+        console.log(p1.nombre)
+        console.log(p1.descripcion)
+        console.log(p1.precioKg)
+        console.log(p1.tipo)
+        p1.getOrigen()
+        p1.getStockKg()
+        p1.getValores()
+
+        const p2 = new Fruta_V2("Pera", "Pera Desc", 123, 123, "Puebla")
+        console.log(p2)
+
+        function Carro(color, marca, modelo, anio) {
+            this.color = color
+            this.marca = marca
+            this.modelo = modelo
+            this.anio = anio
+            this.propietario_interno = null
+        }
+
+        const carro_1 = new Carro("Rojo", 'VW', "Vento", 2023)
+        console.log(Carro)
+        console.log(carro_1)
+    </script>
+</body>
+</html>

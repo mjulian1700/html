@@ -86,6 +86,7 @@
     <Content Include="ejemplos\mercadito_ejercicio.html" />
     <Content Include="ejemplos\Objetos.html" />
     <Content Include="ejemplos\Position.html" />
+    <Content Include="ejemplos\Prototype.html" />
     <Content Include="ejemplos\QuerySelector.html" />
     <Content Include="ejemplos\QuerySelector_Ejercicio.html" />
     <Content Include="ejemplos\tablas.html" />
