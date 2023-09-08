@@ -5,6 +5,19 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="MercaditoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ContactoRequest">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="mensaje" Type="nvarchar(max)" />
+          <Property Name="asunto" Type="nvarchar" MaxLength="20" />
+          <Property Name="contactar" Type="bit" />
+          <Property Name="noticias" Type="bit" />
+          <Property Name="prioridad" Type="tinyint" />
+        </EntityType>
         <EntityType Name="Frutas">
           <Key>
             <PropertyRef Name="id" />
@@ -15,13 +28,14 @@
           <Property Name="precioKg" Type="money" Nullable="false" />
           <Property Name="imgUri" Type="nvarchar" MaxLength="200" Nullable="false" />
           <Property Name="stockKg" Type="decimal" Precision="11" Scale="2" Nullable="false" />
-          <Property Name="latitude" Type="decimal" Precision="18" Scale="15" />
-          <Property Name="longitude" Type="decimal" Precision="18" Scale="15" />
-          <Property Name="videoUri_1" Type="nvarchar" MaxLength="200" />
-          <Property Name="videoUri_2" Type="nvarchar" MaxLength="200" />
-          <Property Name="videoUri_3" Type="nvarchar" MaxLength="200" />
+          <Property Name="latitude" Type="decimal" Precision="18" Scale="15" Nullable="false" />
+          <Property Name="longitude" Type="decimal" Precision="18" Scale="15" Nullable="false" />
+          <Property Name="videoUri_1" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="videoUri_2" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="videoUri_3" Type="nvarchar" MaxLength="200" Nullable="false" />
         </EntityType>
         <EntityContainer Name="MercaditoModelStoreContainer">
+          <EntitySet Name="ContactoRequest" EntityType="Self.ContactoRequest" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Frutas" EntityType="Self.Frutas" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -38,15 +52,29 @@
           <Property Name="precioKg" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
           <Property Name="imgUri" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="stockKg" Type="Decimal" Precision="11" Scale="2" Nullable="false" />
-          <Property Name="latitude" Type="Decimal" Precision="18" Scale="15" />
-          <Property Name="longitude" Type="Decimal" Precision="18" Scale="15" />
-          <Property Name="videoUri_1" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="videoUri_2" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="videoUri_3" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="latitude" Type="Decimal" Precision="18" Scale="15" Nullable="false" />
+          <Property Name="longitude" Type="Decimal" Precision="18" Scale="15" Nullable="false" />
+          <Property Name="videoUri_1" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="videoUri_2" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="videoUri_3" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
         </EntityType>
         <EntityContainer Name="MercaditoEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Frutas" EntityType="Self.Frutas" />
+          <EntitySet Name="ContactoRequest" EntityType="MercaditoModel.ContactoRequest" />
         </EntityContainer>
+        <EntityType Name="ContactoRequest">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="mensaje" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="asunto" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="contactar" Type="Boolean" />
+          <Property Name="noticias" Type="Boolean" />
+          <Property Name="prioridad" Type="Byte" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -67,6 +95,20 @@
                 <ScalarProperty Name="precioKg" ColumnName="precioKg" />
                 <ScalarProperty Name="imgUri" ColumnName="imgUri" />
                 <ScalarProperty Name="stockKg" ColumnName="stockKg" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ContactoRequest">
+            <EntityTypeMapping TypeName="MercaditoModel.ContactoRequest">
+              <MappingFragment StoreEntitySet="ContactoRequest">
+                <ScalarProperty Name="prioridad" ColumnName="prioridad" />
+                <ScalarProperty Name="noticias" ColumnName="noticias" />
+                <ScalarProperty Name="contactar" ColumnName="contactar" />
+                <ScalarProperty Name="asunto" ColumnName="asunto" />
+                <ScalarProperty Name="mensaje" ColumnName="mensaje" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

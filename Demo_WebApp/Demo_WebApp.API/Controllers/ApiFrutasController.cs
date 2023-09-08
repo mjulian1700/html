@@ -1,6 +1,8 @@
 ﻿using Demo_WebApp.API.DataModel;
+using Demo_WebApp.API.Models;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Net;
 using System.Threading;
@@ -18,7 +20,7 @@ namespace Demo_WebApp.API.Controllers
         {
             try
             {
-               Thread.Sleep(3000);
+                Thread.Sleep(3000);
                 using (MercaditoEntities context = new MercaditoEntities())
                 {
                     if (String.IsNullOrEmpty(criterio) == false &&
@@ -76,6 +78,31 @@ namespace Demo_WebApp.API.Controllers
                 return Content<Exception>(HttpStatusCode.InternalServerError,
                     ex, Configuration.Formatters.JsonFormatter);
                 //return InternalServerError(ex);
+            }
+        }
+
+        [HttpPost]
+        [Route("api/contacto/crear")]
+        public IHttpActionResult AgregarContactoRequest
+        (ContactoRequestModel model)
+        {
+            try
+            {
+                using (MercaditoEntities context
+                    = new MercaditoEntities())
+                {
+                    context.ContactoRequest.Add(new ContactoRequest()
+                    {
+                        nombre = model.Nombre,
+                        email = model.Email
+                    });
+                }
+            }
+            catch (Exception ex)
+            {
+                return Content<Exception>(HttpStatusCode
+                    .InternalServerError, ex, Configuration
+                    .Formatters.JsonFormatter);
             }
         }
     }

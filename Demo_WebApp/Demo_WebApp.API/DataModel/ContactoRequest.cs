@@ -12,18 +12,15 @@ namespace Demo_WebApp.API.DataModel
     using System;
     using System.Collections.Generic;
     
-    public partial class Frutas
+    public partial class ContactoRequest
     {
         public int id { get; set; }
         public string nombre { get; set; }
-        public string descripcion { get; set; }
-        public decimal precioKg { get; set; }
-        public string imgUri { get; set; }
-        public decimal stockKg { get; set; }
-        public decimal latitude { get; set; }
-        public decimal longitude { get; set; }
-        public string videoUri_1 { get; set; }
-        public string videoUri_2 { get; set; }
-        public string videoUri_3 { get; set; }
+        public string email { get; set; }
+        public string mensaje { get; set; }
+        public string asunto { get; set; }
+        public Nullable<bool> contactar { get; set; }
+        public Nullable<bool> noticias { get; set; }
+        public Nullable<byte> prioridad { get; set; }
     }
 }

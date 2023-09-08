@@ -26,5 +26,6 @@ namespace Demo_WebApp.API.DataModel
         }
     
         public virtual DbSet<Frutas> Frutas { get; set; }
+        public virtual DbSet<ContactoRequest> ContactoRequest { get; set; }
     }
 }
