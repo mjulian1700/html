@@ -96,6 +96,10 @@ namespace Demo_WebApp.API.Controllers
                         nombre = model.Nombre,
                         email = model.Email
                     });
+                    context.SaveChanges();
+                    return Content<ContactoRequestModel>
+                        (HttpStatusCode.Created,
+                    model, Configuration.Formatters.JsonFormatter);
                 }
             }
             catch (Exception ex)
