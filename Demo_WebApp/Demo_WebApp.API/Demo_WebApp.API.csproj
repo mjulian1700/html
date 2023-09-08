@@ -250,6 +250,7 @@
       <DependentUpon>MercaditoDataModel.edmx</DependentUpon>
       <LastGenOutput>MercaditoDataModel.cs</LastGenOutput>
     </Content>
+    <Content Include="DataModel\Mercadito_Script.sql" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
