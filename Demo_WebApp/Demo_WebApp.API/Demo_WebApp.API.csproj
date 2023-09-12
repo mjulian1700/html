@@ -207,9 +207,6 @@
     <Compile Include="Controllers\FrutasController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
-    <Compile Include="DataModel\ContactoRequest.cs">
-      <DependentUpon>MercaditoDataModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="DataModel\Frutas.cs">
       <DependentUpon>MercaditoDataModel.tt</DependentUpon>
     </Compile>
@@ -250,7 +247,6 @@
       <DependentUpon>MercaditoDataModel.edmx</DependentUpon>
       <LastGenOutput>MercaditoDataModel.cs</LastGenOutput>
     </Content>
-    <Content Include="DataModel\Mercadito_Script.sql" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
